@@ -1,48 +1,54 @@
-template <class Type>
-
+template <class Type> 
 class Cell{
 private:
     Type element;
     Cell* next;
-}
+};
 
+template <class Type>
 class Stack{
 private:
-    Cell* top;
+	Cell<Type>* top;
     
 public:
     void makeNull(void);
-    Type top(void);
+    Type getTop(void);
     int isEmpty(void);
     int isFull(void);     
-    void push(Cell);
+    void push(Type*);
     Type pop(void);
 };
 
 //methods implementation
 
-void Stack::makeNull(void){
+template <class Type> void Stack<Type>::makeNull(void){
     top = 0;
 }
 
-Type Stack::clear(void){
+template <class Type> Type Stack<Type>::getTop(void){
     return *top;   
 }    
 
-int Stack::isEmpty(void){
+template <class Type> int Stack<Type>::isEmpty(void){
     return (top == 0);   
 } 
 
-void push(Cell input){
+template <class Type> void Stack<Type>::push(Type* input){
+	//create Cell
+	Cell<Type> newElement;
+	newElement.element = input;
     //if is empty init top
-    if(isEmpty())
-        top = &input;
-    else
-        input.next = *top;
-        top = &input;
+    if(isEmpty()){
+		newElement.next = 0;
+        top = newElement;
+	}
+    else{
+        newElement.next = *top;
+        top = &newElement;
+	}
 }
 
-Type pop(void){
+template <class Type> Type Stack<Type>::pop(void){
     Type aux;
     aux = *top.element;//get top's element value
     top = *top.next;//get following stack element
