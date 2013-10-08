@@ -1,56 +1,79 @@
-template <class Type> 
-class Cell{
-private:
-    Type element;
-    Cell* next;
+// ConsoleApplication2.cpp : Defines the entry point for the console application.
+//
+
+#include <stdlib.h>
+#include <string.h>
+#include <iostream>
+
+using namespace std;
+
+struct node
+{
+	char data;
+	node *link;
 };
 
-template <class Type>
-class Stack{
+
+class Stack
+{
 private:
-	Cell<Type>* top;
-    
+	node* top;
+
 public:
-    void makeNull(void);
-    Type getTop(void);
-    int isEmpty(void);
-    int isFull(void);     
-    void push(Type*);
-    Type pop(void);
+	Stack()
+	{
+		top=NULL;
+	}
+
+	bool isEmpty(){
+		return (top == NULL);
+	}
+
+	void push(int n)
+	{
+		node* tmp;
+		tmp = new node;
+
+		if (tmp==NULL)
+			cout << "\nStack FULL";
+			tmp->data = n;	
+			tmp->link=top;
+
+			top=tmp;
+	}
+
+	char pop(){
+
+		if (top==NULL)
+		{
+			cout <<"\nStack empty" ;
+			return NULL;
+		}
+	
+		node* tmp;
+		int n;
+
+		tmp = top;
+		n=tmp->data;
+		top=tmp->link;
+
+		delete tmp;
+		return n;
+	}
+
+	~Stack(){
+
+		if (top==NULL)
+		
+			return;
+
+			node *tmp;
+			while	(top!=NULL)
+			{
+				tmp=top;
+				top=top->link;
+				delete tmp;
+			}
+		}
+
 };
-
-//methods implementation
-
-template <class Type> void Stack<Type>::makeNull(void){
-    top = 0;
-}
-
-template <class Type> Type Stack<Type>::getTop(void){
-    return *top;   
-}    
-
-template <class Type> int Stack<Type>::isEmpty(void){
-    return (top == 0);   
-} 
-
-template <class Type> void Stack<Type>::push(Type* input){
-	//create Cell
-	Cell<Type> newElement;
-	newElement.element = input;
-    //if is empty init top
-    if(isEmpty()){
-		newElement.next = 0;
-        top = newElement;
-	}
-    else{
-        newElement.next = *top;
-        top = &newElement;
-	}
-}
-
-template <class Type> Type Stack<Type>::pop(void){
-    Type aux;
-    aux = *top.element;//get top's element value
-    top = *top.next;//get following stack element
-    return aux;
-}
