@@ -1,15 +1,15 @@
 #include "stack.cpp"
 #include <stdlib.h>
 #include <string.h>
+#include <iostream>
+
+using namespace std;
 
 
+int main(int argc, const char* argv[]){
 
-int _tmain(int argc, _THCAR* argv[]){
-
-	Stack<char> mystack;
+	Stack mystack;
 	char input[11] = "0123456789";
-
-	mystack.makeNull();
 
 	for (int i = 0; i < strlen(input); i++){
 		
@@ -21,7 +21,6 @@ int _tmain(int argc, _THCAR* argv[]){
 
 		cout << "Poping: " << mystack.pop() << endl;
 	}
-
-	system("Pause");
+	return 0;
 
 }
