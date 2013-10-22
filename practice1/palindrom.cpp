@@ -1,9 +1,6 @@
-#include <stdlib.h>
-#include <string.h>
-#include <iostream>
 #include "palindrom.h"
 
-int isPalindrom(String input){
+int isPalindrom(string input){
 	//get string into stack
 	Stack stack;
 	for(int i=0, i<input.size(), i++){
