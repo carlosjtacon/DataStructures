@@ -1,6 +1,3 @@
-// ConsoleApplication2.cpp : Defines the entry point for the console application.
-//
-
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
@@ -51,6 +48,7 @@ public:
 		}
 	
 		node* tmp;
+		tmp = new node;
 		int n;
 
 		tmp = top;
