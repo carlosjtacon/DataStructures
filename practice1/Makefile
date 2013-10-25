@@ -1,3 +1,6 @@
+practice1: stack.o queue.o palindrom.o
+	g++ -Wall stack.o queue.o palindrom.o -practice1
+
 tester: stack.o tester.c
 	g++ -Wall stack.o tester.c -o tester
 
@@ -9,9 +12,6 @@ queue.o: queue.cpp
 
 palindrom.o: palindrom.cpp
 	g++ -c -Wall palindrom.cpp -o palindrom.o
-
-practice1: stack.o queue.o palindrom.o
-	g++ -Wall stack.o queue.o palindrom.o -practice1
 
 clean:
 	rm -f *.o
