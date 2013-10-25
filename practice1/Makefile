@@ -1,5 +1,5 @@
 practice1: stack.o queue.o palindrom.o
-	g++ -Wall stack.o queue.o palindrom.o -o practice1
+	g++ -Wall stack.o queue.o palindrom.o main.cpp -o practice1
 
 tester: stack.o tester.c
 	g++ -Wall stack.o tester.c -o tester
