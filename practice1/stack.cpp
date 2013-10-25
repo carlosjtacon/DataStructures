@@ -33,10 +33,10 @@ public:
 
 		if (tmp==NULL)
 			cout << "\nStack FULL";
-			tmp->data = n;	
-			tmp->link=top;
+		tmp->data = n;	
+		tmp->link=top;
 
-			top=tmp;
+		top=tmp;
 	}
 
 	char pop(){
@@ -44,19 +44,19 @@ public:
 		if (top==NULL)
 		{
 			cout <<"\nStack empty" ;
-			return NULL;
+			return '\0';
 		}
 	
 		node* tmp;
 		tmp = new node;
-		int n;
+		char value;
 
 		tmp = top;
-		n=tmp->data;
+		value=tmp->data;
 		top=tmp->link;
 
 		delete tmp;
-		return n;
+		return value;
 	}
 
 	~Stack(){
