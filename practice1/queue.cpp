@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
-#include <iostream.h>
+//#include <iostream.h>
 
 using namespace std;
 
@@ -23,8 +23,8 @@ public:
 	Queue()
 	{
 		/*constructor*/
-		_front == NULL;
-		_rear == _front;
+		_front = NULL;
+		_rear = _front;
 	}
 	~Queue()
 	{
@@ -55,6 +55,7 @@ public:
 			_current=_front;
 			_front=_current->next;
 		}
+		return
 	}
 
 	char front()	//Return the element at the front of the queue
