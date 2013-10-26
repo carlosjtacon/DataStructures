@@ -1,19 +1,19 @@
 #include "stack.h"
 using namespace std;
 
-Stack()
+Stack::Stack()
 {
 	top=NULL;
 }
 
-bool isEmpty(){
+bool Stack::isEmpty(){
 	return (top == NULL);
 }
 
-void push(int n)
+void Stack::push(int n)
 {
-	node* tmp;
-	tmp = new node;
+	stackNode* tmp;
+	tmp = new stackNode;
 
 	if (tmp==NULL)
 		cout << "\nStack FULL";
@@ -23,7 +23,7 @@ void push(int n)
 	top=tmp;
 }
 
-char pop(){
+char Stack::pop(){
 
 	if (top==NULL)
 	{
@@ -31,8 +31,8 @@ char pop(){
 		return '\0';
 	}
 
-	node* tmp;
-	tmp = new node;
+	stackNode* tmp;
+	tmp = new stackNode;
 	char value;
 
 	tmp = top;
@@ -43,13 +43,13 @@ char pop(){
 	return value;
 }
 
-~Stack(){
+Stack::~Stack(){
 
 	if (top==NULL)
 	
 		return;
 
-		node *tmp;
+		stackNode *tmp;
 		while	(top!=NULL)
 		{
 			tmp=top;
