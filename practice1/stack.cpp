@@ -1,77 +1,61 @@
-#include <stdlib.h>
-#include <string.h>
-#include <iostream>
-
+#include "stack.h"
 using namespace std;
 
-struct node
+Stack()
 {
-	char data;
-	node *link;
-};
+	top=NULL;
+}
 
+bool isEmpty(){
+	return (top == NULL);
+}
 
-class Stack
+void push(int n)
 {
-private:
-	node* top;
+	node* tmp;
+	tmp = new node;
 
-public:
-	Stack()
+	if (tmp==NULL)
+		cout << "\nStack FULL";
+	tmp->data = n;	
+	tmp->link=top;
+
+	top=tmp;
+}
+
+char pop(){
+
+	if (top==NULL)
 	{
-		top=NULL;
+		cout <<"\nStack empty" ;
+		return '\0';
 	}
 
-	bool isEmpty(){
-		return (top == NULL);
-	}
+	node* tmp;
+	tmp = new node;
+	char value;
 
-	void push(int n)
-	{
-		node* tmp;
-		tmp = new node;
+	tmp = top;
+	value=tmp->data;
+	top=tmp->link;
 
-		if (tmp==NULL)
-			cout << "\nStack FULL";
-		tmp->data = n;	
-		tmp->link=top;
+	delete tmp;
+	return value;
+}
 
-		top=tmp;
-	}
+~Stack(){
 
-	char pop(){
-
-		if (top==NULL)
-		{
-			cout <<"\nStack empty" ;
-			return '\0';
-		}
+	if (top==NULL)
 	
-		node* tmp;
-		tmp = new node;
-		char value;
+		return;
 
-		tmp = top;
-		value=tmp->data;
-		top=tmp->link;
-
-		delete tmp;
-		return value;
+		node *tmp;
+		while	(top!=NULL)
+		{
+			tmp=top;
+			top=top->link;
+			delete tmp;
+		}
 	}
 
-	~Stack(){
 
-		if (top==NULL)
-		
-			return;
-
-			node *tmp;
-			while	(top!=NULL)
-			{
-				tmp=top;
-				top=top->link;
-				delete tmp;
-			}
-		}
-
-};
