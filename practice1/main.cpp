@@ -1,29 +1,31 @@
 #include <stdio.h>
-#include <iostream.h>
+#include <iostream>
 #include <stdlib.h>
 #include "stack.cpp"
 #include "queue.cpp"
 #include <string.h>
+#include "palindrom.h"
+#include <fstream>
 
 using namespace std;
 
 int main(int argc, const char* argv[]){
 	
-	String input=0;
+	string input=0;
 	
 	if (argc > 2){
 		cout << "there's way too much arguments :)";
 		return 0;
 	}else if(argc ==1){ //just the word to be checked if palindrom or not
-		input = argv[0];		
-	}else(argc == 2){//-f modifier & name of file to be checked
+		input = argv[0];
+	}else if(argc == 2){//-f modifier & name of file to be checked
 		if(strcmp(argv[0],"-f")==0){
-			cout << "paremeter unknown " + argv[0];
+			cout << "paremeter unknown " + *argv[0];
 		}else{// if everything is ok
-			std::ifstream inputFile (argv[1]);
+			ifstream inputFile (argv[1]);
 			if(inputFile.is_open()){
-				std::string tmp;
-				while(std::getline(inputFile, tmp)
+				string tmp;
+				while(getline(inputFile, tmp))
 					input+=tmp;
 			}//now we've got the file text in 'input' string
 			else{
