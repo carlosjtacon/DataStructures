@@ -1,20 +1,21 @@
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
+//#include "stackNode.h"
 
 #ifndef STACK_H
 #define STACK_H
 
-struct node
+struct stackNode
 {
 	char data;
-	node *link;
+	stackNode *link;
 };
 
 class Stack
 {
 private:
-	node* top;
+	stackNode* top;
 
 public:
 	Stack();
