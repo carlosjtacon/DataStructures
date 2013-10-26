@@ -14,15 +14,18 @@ int main(int argc, const char* argv[]){
 	string input ("\0");
 	
 	if (argc > 3){
+
 		cout << "there's way too much arguments :) \n";
 		return 0;
+
 	}else if(argc ==2){ //just the word to be checked if palindrom or not
+
 		input = argv[1];
+
 	}else if(argc == 3){//-f modifier & name of file to be checked
-		if(strcmp(argv[1],"-f")==1){
-			cout << "paremeter unknown " + *argv[1];
-			cout <<  " \n";
-		}else{// if everything is ok
+
+		if(strcmp(argv[1],"-f")==0){// if everything is ok
+			
 			ifstream inputFile (argv[2]);
 			if(inputFile.is_open()){
 				string tmp;
@@ -33,13 +36,21 @@ int main(int argc, const char* argv[]){
 				cout << "the file couldn't be opened, maybe doesn't exists \n";
 				return 0;
 			}
+
+		}else{// if wrong parameter
+			cout << "paremeter unknown " << argv[1] << endl;
+			return 0;
 		}
 	}
 
+	cout << "_____________________________" << endl;
+	cout << endl;
 	if(isPalindrom(input)){
 		cout << input + " is palindrom \n";
 	}else{
 		cout << input + " is not palindrom \n";
 	}
+	cout << endl;
+	cout << "_____________________________" << endl;
 	return 0;
 }
