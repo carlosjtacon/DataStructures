@@ -19,7 +19,7 @@ int main(int argc, const char* argv[]){
 	}else if(argc ==2){ //just the word to be checked if palindrom or not
 		input = argv[1];
 	}else if(argc == 3){//-f modifier & name of file to be checked
-		if(strcmp(argv[1],"-f")==0){
+		if(strcmp(argv[1],"-f")==1){
 			cout << "paremeter unknown " + *argv[1];
 			cout <<  " \n";
 		}else{// if everything is ok
