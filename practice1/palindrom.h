@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
-#include "stack.cpp"
+#include "stack.h"
 #include "queue.cpp"
 
 int isPalindrom(std::string input);
