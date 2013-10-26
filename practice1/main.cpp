@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "stack.h"
-#include "queue.cpp"
+#include "queue.h"
 #include <string.h>
 #include "palindrom.h"
 #include <fstream>
