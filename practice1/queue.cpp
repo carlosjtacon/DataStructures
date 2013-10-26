@@ -1,56 +1,81 @@
 #include <stdlib.h>
 #include <string.h>
-#include <iostream.h>
+//#include <iostream.h>
 
 using namespace std;
 
 struct node
 {
 	char data;
-	node *link;
+	node* next;
 };
 
 class Queue
 {
+
 private:
 	node* _front;
+	node* _rear;
+	node* _current;
+	int size;
 
 public:
 	Queue()
 	{
 		/*constructor*/
-		_front == NULL;
+		_front = NULL;
+		_rear = _front;
 	}
 	~Queue()
 	{
 		/*destructor*/
 	}
 
-	void enqueue(char c)
+	void enqueue(char c)	//Insert an element at the rear of the queue
 	{
-		//Insert an element at the rear of the queue
+		_current= new node;
+		_current->next=NULL;
+
+		if (_front==NULL)
+		{
+			_front=_current;
+			_rear=_front;
+		}
+		else if (_front!=NULL)
+		{
+			_rear->next=_current;
+			_rear=_current;
+		}
 	}
 
-	char dequeue()
+	char dequeue()	//Delete the element at the front of queue (and return it)
 	{
-		//Delete the element at the front of queue (and return it)
+		if (_front!=NULL)
+		{
+			_current=_front;
+			_front=_current->next;
+		}
+		return
 	}
 
-	char front()
+	char front()	//Return the element at the front of the queue
 	{
-		//Return the element at the front of the queue
 		return _front -> data;
 	}
 
-	void makenull()
+	char rear()	//Return the element at the rear of the queue
 	{
-		//Make the queue to be an empty queue
-		_front =NULL;
+		return _rear -> data;
 	}
 
-	bool isEmpty()
+	void makenull()	//Make the queue to be an empty queue
 	{
-		//Return true if the queue is empty, return false otherwise
-		return (_front == NULL);
+		_front = NULL;
+		_rear = _front;
+	}
+
+	bool isEmpty()	//Return true if the queue is empty, return false otherwise
+	{
+		return (_front == _rear);
 	}
 };
