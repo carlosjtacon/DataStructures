@@ -17,7 +17,6 @@ class Queue
 private:
 	queueNode* _front;
 	queueNode* _rear;
-	queueNode* _current;
 
 public:
 	Queue();
