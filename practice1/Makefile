@@ -13,6 +13,10 @@ queue.o: queue.cpp
 palindrom.o: palindrom.cpp
 	g++ -c -Wall palindrom.cpp -o palindrom.o
 
+##just for checking main method
+justmain: main.cpp
+	g++ -c -Wall main.cpp -o justmain.o
+
 clean:
 	rm -f *.o
 	rm -f tester
