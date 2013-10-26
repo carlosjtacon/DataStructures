@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
-#include "stack.cpp"
+#include "stack.h"
 #include "queue.cpp"
 #include <string.h>
 #include "palindrom.h"
