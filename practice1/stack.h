@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
-//#include "stackNode.h"
 
 #ifndef STACK_H
 #define STACK_H
