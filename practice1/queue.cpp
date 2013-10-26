@@ -1,81 +1,62 @@
-#include <stdlib.h>
-#include <string.h>
-//#include <iostream.h>
-
+#include "queue.h"
 using namespace std;
 
-struct node
+
+Queue::Queue()
 {
-	char data;
-	node* next;
-};
-
-class Queue
+	_front = NULL;
+	_rear = _front;
+}
+Queue::~Queue()
 {
-
-private:
-	node* _front;
-	node* _rear;
-	node* _current;
-	int size;
-
-public:
-	Queue()
-	{
-		/*constructor*/
-		_front = NULL;
-		_rear = _front;
-	}
-	~Queue()
-	{
 		/*destructor*/
-	}
+}
 
-	void enqueue(char c)	//Insert an element at the rear of the queue
+void Queue::enqueue(char c)	//Insert an element at the rear of the queue
+{
+	_current= new queueNode;
+	_current->next=NULL;
+
+	if (_front==NULL)
 	{
-		_current= new node;
-		_current->next=NULL;
-
-		if (_front==NULL)
-		{
-			_front=_current;
-			_rear=_front;
-		}
-		else if (_front!=NULL)
-		{
-			_rear->next=_current;
-			_rear=_current;
-		}
+		_front=_current;
+		_rear=_front;
 	}
-
-	char dequeue()	//Delete the element at the front of queue (and return it)
+	else if (_front!=NULL)
 	{
-		if (_front!=NULL)
-		{
-			_current=_front;
-			_front=_current->next;
-		}
-		return
+		_rear->next=_current;
+		_rear=_current;
 	}
+}
 
-	char front()	//Return the element at the front of the queue
+char Queue::dequeue()	//Delete the element at the front of queue (and return it)
+{
+	if (_front!=NULL)
 	{
-		return _front -> data;
+		_current=_front;
+		_front=_current->next;
 	}
+	return _current -> data;
+}
 
-	char rear()	//Return the element at the rear of the queue
-	{
-		return _rear -> data;
-	}
+char Queue::front()	//Return the element at the front of the queue
+{
+	return _front -> data;
+}
 
-	void makenull()	//Make the queue to be an empty queue
-	{
-		_front = NULL;
-		_rear = _front;
-	}
+char Queue::rear()	//Return the element at the rear of the queue
+{
+	return _rear -> data;
+}
 
-	bool isEmpty()	//Return true if the queue is empty, return false otherwise
-	{
-		return (_front == _rear);
-	}
-};
+void Queue::makenull()	//Make the queue to be an empty queue
+{
+	_front = NULL;
+	_rear = _front;
+}
+
+bool Queue::isEmpty()	//Return true if the queue is empty, return false otherwise
+{
+	return (_front == _rear);
+}
+
