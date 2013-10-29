@@ -21,7 +21,7 @@ int main(int argc, const char* argv[]){
 	}else if(argc ==2){ //just the word to be checked if palindrom or not
 
 		//input = argv[1];
-		std::getline(input, argv[1], ' ');
+		std::getline(cin<<argv[1], input, ' ');
 
 	}else if(argc == 3){//-f modifier & name of file to be checked
 
