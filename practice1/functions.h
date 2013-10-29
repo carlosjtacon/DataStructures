@@ -4,4 +4,8 @@
 #include "stack.h"
 #include "queue.h"
 
-int isPalindrom(std::string input);
+using namespace std;
+
+int isPalindrom(string input);
+string rmSpace(const char* input);
+string rmSpace(string input);

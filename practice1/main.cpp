@@ -4,7 +4,7 @@
 #include "stack.h"
 #include "queue.h"
 #include <string.h>
-#include "palindrom.h"
+#include "functions.h"
 #include <fstream>
 
 using namespace std;
@@ -12,6 +12,7 @@ using namespace std;
 int main(int argc, const char* argv[]){
 	
 	string input ("\0");
+	string original ("\0");
 	
 	if (argc > 3){
 
@@ -21,7 +22,8 @@ int main(int argc, const char* argv[]){
 	}else if(argc ==2){ //just the word to be checked if palindrom or not
 
 		//input = argv[1];
-		std::getline(cin<<argv[1], input, ' ');
+		input=rmSpace(argv[1]);
+		original=argv[1];
 
 	}else if(argc == 3){//-f modifier & name of file to be checked
 
@@ -30,8 +32,9 @@ int main(int argc, const char* argv[]){
 			ifstream inputFile (argv[2]);
 			if(inputFile.is_open()){
 				string tmp;
-				while(getline(inputFile, tmp, " "))
-					input+=tmp;
+				while(getline(inputFile, tmp))
+					original+=tmp;
+				input=rmSpace(original);
 			}//now we've got the file text in 'input' string
 			else{
 				cout << "the file couldn't be opened, maybe doesn't exists \n";
@@ -47,9 +50,9 @@ int main(int argc, const char* argv[]){
 	cout << "_____________________________" << endl;
 	cout << endl;
 	if(isPalindrom(input)){
-		cout << input + " is palindrom \n";
+		cout << original + " is palindrom \n";
 	}else{
-		cout << input + " is not palindrom \n";
+		cout << original + " is not palindrom \n";
 	}
 	cout << endl;
 	cout << "_____________________________" << endl;

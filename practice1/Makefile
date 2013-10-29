@@ -1,5 +1,5 @@
-practice1: stack.o queue.o palindrom.o
-	g++ -Wall stack.o queue.o palindrom.o main.cpp -o practice1
+practice1: stack.o queue.o functions.o main.cpp
+	g++ -Wall stack.o queue.o functions.o main.cpp -o practice1
 
 stack.o: stack.cpp
 	g++ -c -Wall stack.cpp -o stack.o
@@ -7,8 +7,8 @@ stack.o: stack.cpp
 queue.o: queue.cpp
 	g++ -c -Wall queue.cpp -o queue.o
 
-palindrom.o: palindrom.cpp
-	g++ -c -Wall palindrom.cpp -o palindrom.o
+functions.o: functions.cpp
+	g++ -c -Wall functions.cpp -o functions.o
 
 ##just for checking main method
 justmain: main.cpp
