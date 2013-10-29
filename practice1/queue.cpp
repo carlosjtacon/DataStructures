@@ -9,7 +9,13 @@ Queue::Queue()
 }
 Queue::~Queue()
 {
-		/*destructor*/
+	queueNode* tmp;
+	while(!isEmpty())
+	{
+		tmp=_front;
+		_front=_front->next;
+		delete tmp;
+	}
 }
 
 void Queue::enqueue(char c)	//Insert an element at the rear of the queue
@@ -36,7 +42,6 @@ char Queue::dequeue()	//Delete the element at the front of queue (and return it)
 	char rt=_front -> data;
 
 	queueNode* _current;
-	_current = new queueNode;
 
 	if (!isEmpty())
 	{
