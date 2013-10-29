@@ -20,7 +20,8 @@ int main(int argc, const char* argv[]){
 
 	}else if(argc ==2){ //just the word to be checked if palindrom or not
 
-		input = argv[1];
+		//input = argv[1];
+		std::getline(input, argv[1], ' ');
 
 	}else if(argc == 3){//-f modifier & name of file to be checked
 
@@ -29,7 +30,7 @@ int main(int argc, const char* argv[]){
 			ifstream inputFile (argv[2]);
 			if(inputFile.is_open()){
 				string tmp;
-				while(getline(inputFile, tmp))
+				while(getline(inputFile, tmp, " "))
 					input+=tmp;
 			}//now we've got the file text in 'input' string
 			else{
