@@ -1,22 +1,23 @@
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
+#include "node.h"
 
 #ifndef QUEUE_H
 #define QUEUE_H
 
-struct queueNode
+/*struct node
 {
 	char data;
-	queueNode* next;
+	node* next;
 };
-
+*/
 class Queue
 {
 
 private:
-	queueNode* _front;
-	queueNode* _rear;
+	node* _front;
+	node* _rear;
 
 public:
 	Queue();

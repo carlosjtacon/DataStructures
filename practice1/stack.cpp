@@ -12,13 +12,13 @@ bool Stack::isEmpty(){
 
 void Stack::push(int n)
 {
-	stackNode* tmp;
-	tmp = new stackNode;
+	node* tmp;
+	tmp = new node;
 
 	if (tmp==NULL)
 		cout << "\nStack FULL";
 	tmp->data = n;	
-	tmp->link=top;
+	tmp->next=top;
 
 	top=tmp;
 }
@@ -31,13 +31,13 @@ char Stack::pop(){
 		return '\0';
 	}
 
-	stackNode* tmp;
-	tmp = new stackNode;
+	node* tmp;
+	tmp = new node;
 	char value;
 
 	tmp = top;
 	value=tmp->data;
-	top=tmp->link;
+	top=tmp->next;
 
 	delete tmp;
 	return value;
@@ -49,11 +49,11 @@ Stack::~Stack(){
 	
 		return;
 
-		stackNode *tmp;
+		node *tmp;
 		while	(top!=NULL)
 		{
 			tmp=top;
-			top=top->link;
+			top=top->next;
 			delete tmp;
 		}
 	}

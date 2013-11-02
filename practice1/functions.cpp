@@ -25,7 +25,7 @@ string rmSpace(const char* input)
 {
 	//remove spaces in the input string
 	string output ("\0");
-	for (int i = 0; i < strlen(input); ++i)
+	for (unsigned int i = 0; i < strlen(input); ++i)
 	{
 		if (input[i]!=' ')
 		{
@@ -38,7 +38,7 @@ string rmSpace(string input)
 {
 	//remove spaces in the input string
 	string output ("\0");
-	for (int i = 0; i < input.size(); ++i)
+	for (unsigned int i = 0; i < input.size(); ++i)
 	{
 		if (input[i]!=' ')
 		{
