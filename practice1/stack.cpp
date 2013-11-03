@@ -3,7 +3,7 @@ using namespace std;
 
 Stack::Stack()
 {
-	top=NULL;
+	makeNull();
 }
 
 bool Stack::isEmpty(){
@@ -44,6 +44,16 @@ char Stack::pop(){
 
 	delete tmp;
 	return value;
+}
+
+char Stack::getTop()
+{
+	return top -> data;
+}
+
+void Stack::makeNull()
+{
+	top = NULL;
 }
 
 Stack::~Stack(){

@@ -5,13 +5,6 @@
 
 #ifndef STACK_H
 #define STACK_H
-/*
-struct node
-{
-	char data;
-	node *link;
-};
-*/
 
 class Stack
 {
@@ -23,6 +16,8 @@ public:
 	bool isEmpty();
 	void push(int n);
 	char pop();
+	char getTop();
+	void makeNull();
 	~Stack();
 };
 

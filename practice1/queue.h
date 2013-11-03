@@ -6,12 +6,6 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-/*struct node
-{
-	char data;
-	node* next;
-};
-*/
 class Queue
 {
 
