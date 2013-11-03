@@ -6,6 +6,6 @@
 
 using namespace std;
 
-int isPalindrom(string input);
+int isPalindrome(string input);
 string rmSpace(const char* input);
 string rmSpace(string input);

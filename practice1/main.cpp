@@ -19,7 +19,7 @@ int main(int argc, const char* argv[]){
 		cout << "there's way too much arguments :) \n";
 		return 0;
 
-	}else if(argc ==2){ //just the word to be checked if palindrom or not
+	}else if(argc ==2){ //just the word to be checked if palindrome or not
 
 		//input = argv[1];
 		input=rmSpace(argv[1]);
@@ -49,10 +49,10 @@ int main(int argc, const char* argv[]){
 
 	cout << "_____________________________" << endl;
 	cout << endl;
-	if(isPalindrom(input)){
-		cout << original + " is palindrom \n";
+	if(isPalindrome(input)){
+		cout << original + " is palindrome \n";
 	}else{
-		cout << original + " is not palindrom \n";
+		cout << original + " is not palindrome \n";
 	}
 	cout << endl;
 	cout << "_____________________________" << endl;

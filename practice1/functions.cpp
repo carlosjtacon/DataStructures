@@ -1,6 +1,6 @@
 #include "functions.h"
 
-int isPalindrom(string input){
+int isPalindrome(string input){
 	//get string into stack
 	Stack stack;
 	for(unsigned int i=0; i<input.size(); i++){
