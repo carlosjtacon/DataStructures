@@ -16,7 +16,10 @@ void Stack::push(int n)
 	tmp = new node;
 
 	if (tmp==NULL)
+	{
 		cout << "\nStack FULL";
+		return;
+	}
 	tmp->data = n;	
 	tmp->next=top;
 
