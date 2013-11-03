@@ -4,8 +4,7 @@ using namespace std;
 
 Queue::Queue()
 {
-	_front = NULL;
-	_rear = _front;
+	makenull();
 }
 Queue::~Queue()
 {
