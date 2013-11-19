@@ -1,23 +1,23 @@
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
-#include "node.h"
+#include "nodeString.h"
 
 using namespace std;
 
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef QUEUESTRING_H
+#define QUEUESTRING_H
 
-class Queue
+class QueueString
 {
 
 private:
-	node* _front;
-	node* _rear;
+	nodeString* _front;
+	nodeString* _rear;
 
 public:
-	Queue();
-	~Queue();
+	QueueString();
+	~QueueString();
 	void enqueue(string s);
 	string dequeue();
 	string front();
