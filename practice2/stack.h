@@ -22,4 +22,6 @@ public:
 	~Stack();
 };
 
+#include "stack.cpp"
+
 #endif

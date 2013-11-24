@@ -25,4 +25,6 @@ public:
 	bool isEmpty();
 };
 
+#include "queue.cpp"
+
 #endif
