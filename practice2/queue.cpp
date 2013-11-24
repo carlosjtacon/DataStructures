@@ -1,14 +1,16 @@
 #include "queue.h"
 using namespace std;
 
-
-Queue::Queue()
+template <typename T>
+Queue<T>::Queue()
 {
 	makenull();
 }
-Queue::~Queue()
+
+template <typename T>
+Queue<T>::~Queue()
 {
-	node* tmp;
+	node<T>* tmp;
 	while(!isEmpty())
 	{
 		tmp=_front;
@@ -17,10 +19,11 @@ Queue::~Queue()
 	}
 }
 
-void Queue::enqueue(char c)	//Insert an element at the rear of the queue
+template <typename T>
+void Queue<T>::enqueue(T c)	//Insert an element at the rear of the queue
 {
-	node* _current;
-	_current= new node;
+	node<T>* _current;
+	_current= new node<T>;
 	_current->next=NULL;
 	_current->data=c;
 
@@ -36,11 +39,12 @@ void Queue::enqueue(char c)	//Insert an element at the rear of the queue
 	}
 }
 
-char Queue::dequeue()	//Delete the element at the front of queue (and return it)
+template <typename T>
+T Queue<T>::dequeue()	//Delete the element at the front of queue (and return it)
 {
-	char rt=_front -> data;
+	T rt=_front -> data;
 
-	node* _current;
+	node<T>* _current;
 
 	if (!isEmpty())
 	{
@@ -51,23 +55,27 @@ char Queue::dequeue()	//Delete the element at the front of queue (and return it)
 	return rt;
 }
 
-char Queue::front()	//Return the element at the front of the queue
+template <typename T>
+T Queue<T>::front()	//Return the element at the front of the queue
 {
 	return _front -> data;
 }
 
-char Queue::rear()	//Return the element at the rear of the queue
+template <typename T>
+T Queue<T>::rear()	//Return the element at the rear of the queue
 {
 	return _rear -> data;
 }
 
-void Queue::makenull()	//Make the queue to be an empty queue
+template <typename T>
+void Queue<T>::makenull()	//Make the queue to be an empty queue
 {
 	_front = NULL;
 	_rear = _front;
 }
 
-bool Queue::isEmpty()	//Return true if the queue is empty, return false otherwise
+template <typename T>
+bool Queue<T>::isEmpty()	//Return true if the queue is empty, return false otherwise
 {
 	return (_front == NULL);
 }

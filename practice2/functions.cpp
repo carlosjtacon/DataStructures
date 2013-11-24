@@ -2,12 +2,12 @@
 
 int isPalindrome(string input){
 	//get string into stack
-	Stack stack;
+	Stack<char> stack;
 	for(unsigned int i=0; i<input.size(); i++){
 		stack.push(input[i]);
 	}
 	//get string into queue
-	Queue queue;
+	Queue<char> queue;
 	for(unsigned int i=0; i<input.size(); i++){
 		queue.enqueue(input[i]);	
 	}

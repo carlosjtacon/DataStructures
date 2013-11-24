@@ -7,9 +7,6 @@ stack.o: stack.cpp
 queue.o: queue.cpp
 	g++ -c -Wall queue.cpp -o queue.o
 
-queueString.o: queueString.cpp
-	g++ -c -Wall queueString.cpp -o queueString.o
-
 functions.o: functions.cpp
 	g++ -c -Wall functions.cpp -o functions.o
 

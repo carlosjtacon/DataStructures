@@ -1,10 +1,11 @@
 #ifndef NODE_H
 #define NODE_H
 
-struct node
-{
-	char data;
-	node* next;
-};
+template <typename T> 
+
+struct node { 
+ 	T data;
+	node<T>* next;
+}; 
 
 #endif

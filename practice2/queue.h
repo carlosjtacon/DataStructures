@@ -6,23 +6,23 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
+template <typename T>
 class Queue
 {
 
 private:
-	node* _front;
-	node* _rear;
+	node<T>* _front;
+	node<T>* _rear;
 
 public:
 	Queue();
 	~Queue();
-	void enqueue(char c);
-	char dequeue();
-	char front();
-	char rear();
+	void enqueue(T c);
+	T dequeue();
+	T front();
+	T rear();
 	void makenull();
 	bool isEmpty();
-
 };
 
 #endif

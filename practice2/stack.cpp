@@ -1,19 +1,22 @@
 #include "stack.h"
 using namespace std;
 
-Stack::Stack()
+template <typename T>
+Stack<T>::Stack()
 {
 	makeNull();
 }
 
-bool Stack::isEmpty(){
+template <typename T>
+bool Stack<T>::isEmpty(){
 	return (top == NULL);
 }
 
-void Stack::push(int n)
+template <typename T>
+void Stack<T>::push(int n)
 {
-	node* tmp;
-	tmp = new node;
+	node<T>* tmp;
+	tmp = new node<T>;
 
 	if (tmp==NULL)
 	{
@@ -26,7 +29,8 @@ void Stack::push(int n)
 	top=tmp;
 }
 
-char Stack::pop(){
+template <typename T>
+T Stack<T>::pop(){
 
 	if (top==NULL)
 	{
@@ -34,9 +38,9 @@ char Stack::pop(){
 		return '\0';
 	}
 
-	node* tmp;
-	tmp = new node;
-	char value;
+	node<T>* tmp;
+	tmp = new node<T>;
+	T value;
 
 	tmp = top;
 	value=tmp->data;
@@ -46,29 +50,32 @@ char Stack::pop(){
 	return value;
 }
 
-char Stack::getTop()
+template <typename T>
+T Stack<T>::getTop()
 {
 	return top -> data;
 }
 
-void Stack::makeNull()
+template <typename T>
+void Stack<T>::makeNull()
 {
 	top = NULL;
 }
 
-Stack::~Stack(){
+template <typename T>
+Stack<T>::~Stack(){
 
 	if (top==NULL)
 	
 		return;
 
-		node *tmp;
-		while	(top!=NULL)
-		{
-			tmp=top;
-			top=top->next;
-			delete tmp;
-		}
+	node<T> *tmp;
+	while	(top!=NULL)
+	{
+		tmp=top;
+		top=top->next;
+		delete tmp;
 	}
+}
 
 
