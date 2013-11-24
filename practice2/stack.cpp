@@ -4,17 +4,37 @@ using namespace std;
 template <typename T>
 Stack<T>::Stack()
 {
+	//constructor
 	makeNull();
 }
 
 template <typename T>
-bool Stack<T>::isEmpty(){
+Stack<T>::~Stack()
+{
+	//some like garbage collector
+	if (top==NULL)
+		return;
+
+	node<T> *tmp;
+	while	(top!=NULL)
+	{
+		tmp=top;
+		top=top->next;
+		delete tmp;
+	}
+}
+
+template <typename T>
+bool Stack<T>::isEmpty()
+{
+	//return true if is empty, if top is null then the stack isEmpty
 	return (top == NULL);
 }
 
 template <typename T>
 void Stack<T>::push(int n)
 {
+	//add an element to the stack
 	node<T>* tmp;
 	tmp = new node<T>;
 
@@ -30,8 +50,9 @@ void Stack<T>::push(int n)
 }
 
 template <typename T>
-T Stack<T>::pop(){
-
+T Stack<T>::pop()
+{
+	//take the element of the stack and delete it
 	if (top==NULL)
 	{
 		cout <<"\nStack empty" ;
@@ -53,29 +74,15 @@ T Stack<T>::pop(){
 template <typename T>
 T Stack<T>::getTop()
 {
+	//return top content
 	return top -> data;
 }
 
 template <typename T>
 void Stack<T>::makeNull()
 {
+	//create a new empty stack
 	top = NULL;
-}
-
-template <typename T>
-Stack<T>::~Stack(){
-
-	if (top==NULL)
-	
-		return;
-
-	node<T> *tmp;
-	while	(top!=NULL)
-	{
-		tmp=top;
-		top=top->next;
-		delete tmp;
-	}
 }
 
 

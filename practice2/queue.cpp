@@ -4,12 +4,14 @@ using namespace std;
 template <typename T>
 Queue<T>::Queue()
 {
+	//constructor
 	makenull();
 }
 
 template <typename T>
 Queue<T>::~Queue()
 {
+	//some like garbage collector
 	node<T>* tmp;
 	while(!isEmpty())
 	{
@@ -20,8 +22,9 @@ Queue<T>::~Queue()
 }
 
 template <typename T>
-void Queue<T>::enqueue(T c)	//Insert an element at the rear of the queue
+void Queue<T>::enqueue(T c)
 {
+	//Insert an element at the rear of the queue
 	node<T>* _current;
 	_current= new node<T>;
 	_current->next=NULL;
@@ -40,10 +43,10 @@ void Queue<T>::enqueue(T c)	//Insert an element at the rear of the queue
 }
 
 template <typename T>
-T Queue<T>::dequeue()	//Delete the element at the front of queue (and return it)
+T Queue<T>::dequeue()	
 {
+	//Delete the element at the front of queue (and return it)
 	T rt=_front -> data;
-
 	node<T>* _current;
 
 	if (!isEmpty())
@@ -56,27 +59,31 @@ T Queue<T>::dequeue()	//Delete the element at the front of queue (and return it)
 }
 
 template <typename T>
-T Queue<T>::front()	//Return the element at the front of the queue
+T Queue<T>::front()	
 {
+	//Return the element at the front of the queue
 	return _front -> data;
 }
 
 template <typename T>
-T Queue<T>::rear()	//Return the element at the rear of the queue
+T Queue<T>::rear()	
 {
+	//Return the element at the rear of the queue
 	return _rear -> data;
 }
 
 template <typename T>
-void Queue<T>::makenull()	//Make the queue to be an empty queue
+void Queue<T>::makenull()	
 {
+	//Make the queue to be an empty queue
 	_front = NULL;
 	_rear = _front;
 }
 
 template <typename T>
-bool Queue<T>::isEmpty()	//Return true if the queue is empty, return false otherwise
+bool Queue<T>::isEmpty()	
 {
+	//Return true if the queue is empty, return false otherwise
 	return (_front == NULL);
 }
 

@@ -25,6 +25,9 @@ public:
 	bool isEmpty();
 };
 
+/* we need to include the implementation code in queue.cpp because we are using structures
+and we only need to have the header file, but it is more clear to have the implemetation 
+in other file even if we dont need it, this is the reason to include the .cpp */
 #include "queue.cpp"
 
 #endif
