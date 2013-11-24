@@ -1,5 +1,5 @@
 palindrome: functions.o main.cpp
-	g++ -Wall functions.o main.cpp -o practice1
+	g++ -Wall functions.o main.cpp -o palindrome
 
 ##functions code
 functions.o: functions.cpp
