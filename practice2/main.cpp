@@ -9,38 +9,44 @@
 
 using namespace std;
 
-int main(int argc, const char* argv[]){
-	
+int main(int argc, const char* argv[])
+{
+	#define HELP "Usage: ./palindrome [parameter]\nWhere: parameter is one of:\n\t\t-k (read from keyboard)\n\t\t-f file (read from file)\n";
 	string input ("\0");
 	string original ("\0");
 	
-	if (argc > 3)
+	if (argc == 1)
 	{
-
-		cout << "there's way too much arguments :) \n";
+		//print the help menu
+		cout << HELP;
 		return 0;
-
 	}
-	else if(argc ==2)
+	else if(argc == 2)
 	{
-
 		if (strcmp(argv[1],"-f")==0)
 		{
-			cout << "which file do you want to open? pass it in arguments :)";
+			//command -f without passing file
+			cout << "Which file do you want to open? Pass it in arguments :)\n";
+			cout << HELP;
 			return 0;
 		}
 		else if (strcmp(argv[1],"-k")==0)
 		{
 			//main, string separated by enter
 		}
-
+		else
+		{
+			// if wrong parameter
+			cout << "Paremeter unknown " << argv[1] << endl;
+			cout << HELP;
+			return 0;
+		}
 	}
 	else if(argc == 3)
 	{
-
 		if(strcmp(argv[1],"-f")==0)
-		{	// if everything is ok
-			
+		{	
+			// if everything is ok
 			ifstream inputFile (argv[2]);
 			if(inputFile.is_open())
 			{
@@ -48,23 +54,36 @@ int main(int argc, const char* argv[]){
 				while(getline(inputFile, tmp))
 					original+=tmp;
 				input=rmSpace(original);
-			}	//now we've got the file text in 'input' string
+				//now we've got the file text in 'input' string
+			}	
 			else
 			{
-				cout << "the file couldn't be opened, maybe doesn't exists \n";
+				//filename does not exists
+				cout << "The file couldn't be opened, maybe doesn't exists :(\n";
+				cout << HELP;
 				return 0;
 			}
-
 		}
 		else if (strcmp(argv[1],"-k")==0)
 		{
-			cout << "this parameter is used without arguments!";
+			//using command -k with more arguments
+			cout << "This parameter is used without arguments, try again!\n";
+			cout << HELP;
 			return 0;
 		}
 		else
-		{	// if wrong parameter
-			cout << "paremeter unknown " << argv[1] << endl;
+		{	
+			// if wrong parameter
+			cout << "Paremeter unknown " << argv[1] << endl;
+			cout << HELP;
 			return 0;
 		}
+	}
+	else if (argc > 3)
+	{
+		//passing more than 2 arguments (2+ ./palindrome = 3)
+		cout << "There's way too much arguments :)\n";
+		cout << HELP;
+		return 0;
 	}
 }
