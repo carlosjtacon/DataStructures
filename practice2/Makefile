@@ -12,4 +12,4 @@ main: main.cpp
 clean:
 	rm -f *.o
 	rm -f tester
-	rm -f practice1
+	rm -f palindrome
