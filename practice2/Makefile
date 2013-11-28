@@ -1,3 +1,4 @@
+##exec
 palindrome: functions.o main.cpp
 	g++ -Wall functions.o main.cpp -o palindrome
 
@@ -11,5 +12,4 @@ main: main.cpp
 
 clean:
 	rm -f *.o
-	rm -f tester
 	rm -f palindrome
