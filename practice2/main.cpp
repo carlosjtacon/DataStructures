@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
-#include "stack.h"
-#include "queue.h"
-#include <string.h>
-#include "functions.h"
 #include <fstream>
+#include <string.h>
+#include "queue.h"
+#include "stack.h"
+#include "functions.h"
 
 using namespace std;
 
@@ -32,7 +32,9 @@ int main(int argc, const char* argv[])
 		}
 		else if (strcmp(argv[1],"-k")==0)
 		{
-			//main, string separated by enter
+			/*
+			 * INSERTAR
+			 */
 		}
 		else
 		{
@@ -52,9 +54,12 @@ int main(int argc, const char* argv[])
 			{
 				string tmp;
 				while(getline(inputFile, tmp))
-					original+=tmp;
-				input=rmSpace(original);
-				//now we've got the file text in 'input' string
+				{
+
+					/*
+					 * INSERTAR
+					 */
+				}
 			}	
 			else
 			{
