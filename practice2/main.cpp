@@ -37,16 +37,14 @@ int main(int argc, const char* argv[])
 
 			while(original!="q")
 			{
-				cout << "(" << i << ") ";
-				cin >> original;
+				cout << "(" << i << ") "; i++;
+				getline(cin, original, '\n');
 				input = rmSpace(original);
 
 				if (isPalindrome(input) && original!="q")
 				{
 					//list.add(original);
 				}
-				
-				i++;
 			} 
 		}
 		else
