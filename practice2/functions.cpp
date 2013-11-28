@@ -47,14 +47,3 @@ string rmSpace(string input)
 	}
 	return output;
 }
-
-/*vector<string> parseString(string input)
-{
-	vector<string> v;
-	string *tok = strtok(input,'\n');
-	while(tok)
-	{
-		tok = strtok(NULL, '\n');
-		v.add(tok);
-	}
-}*/
