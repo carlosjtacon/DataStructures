@@ -10,3 +10,4 @@ using namespace std;
 int isPalindrome(string input);
 string rmSpace(const char* input);
 string rmSpace(string input);
+int numWords(string input);

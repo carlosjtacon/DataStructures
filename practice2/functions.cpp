@@ -20,7 +20,6 @@ int isPalindrome(string input){
 	}
 	return 1;
 }
-
 string rmSpace(const char* input)
 {
 	//remove spaces in the input string
@@ -46,4 +45,17 @@ string rmSpace(string input)
 		}
 	}
 	return output;
+}
+int numWords(string input)
+{
+	int cont = 1;
+	int length = input.length();
+	for (int i = 0; i < length; ++i)
+	{
+		if (input[i] == ' ' && input[i+1]!=' ' && input[i+1]!='\0')
+		{
+			cont++;
+		}
+	}
+	return cont;
 }
