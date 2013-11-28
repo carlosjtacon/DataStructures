@@ -32,9 +32,22 @@ int main(int argc, const char* argv[])
 		}
 		else if (strcmp(argv[1],"-k")==0)
 		{
-			/*
-			 * INSERTAR
-			 */
+			//read strings from keyboard
+			int i = 0;
+
+			while(original!="q")
+			{
+				cout << "(" << i << ") ";
+				cin >> original;
+				input = rmSpace(original);
+
+				if (isPalindrome(input) && original!="q")
+				{
+					//list.add(original);
+				}
+				
+				i++;
+			} 
 		}
 		else
 		{
@@ -55,7 +68,6 @@ int main(int argc, const char* argv[])
 				string tmp;
 				while(getline(inputFile, tmp))
 				{
-
 					/*
 					 * INSERTAR
 					 */
