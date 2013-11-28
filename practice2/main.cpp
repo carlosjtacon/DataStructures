@@ -11,10 +11,22 @@ using namespace std;
 
 int main(int argc, const char* argv[])
 {
-	#define HELP "Usage: ./palindrome [parameter]\nWhere: parameter is one of:\n\t\t-k (read from keyboard)\n\t\t-f file (read from file)\n";
+	#define HELP "Usage: ./palindrome [parameter]\nWhere: parameter is one of:\n\t\t-h (help)\n\t\t-k (read from keyboard)\n\t\t-f file (read from file)\n\t\t-d letter (remove all palindromes which start by this letter)\n\t\t-s (show data)\n\t\t-q (exit)\n";
 	string input ("\0");
 	string original ("\0");
-	
+	string command;
+
+	cout << HELP;	
+
+	do
+	{
+		cout << "$ palindrome ";
+		getline(cin, command, '\n');
+		int myArgc = numWords(command);
+		char myArgv[myArgc];
+	}
+	while(command != "-q");
+/*
 	if (argc == 1)
 	{
 		//print the help menu
@@ -66,9 +78,7 @@ int main(int argc, const char* argv[])
 				string tmp;
 				while(getline(inputFile, tmp))
 				{
-					/*
-					 * INSERTAR
-					 */
+					//INSERTAR
 				}
 			}	
 			else
@@ -100,5 +110,5 @@ int main(int argc, const char* argv[])
 		cout << "There's way too much arguments :)\n";
 		cout << HELP;
 		return 0;
-	}
+	}*/
 }
