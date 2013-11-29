@@ -11,19 +11,27 @@ using namespace std;
 
 int main(int argc, const char* argv[])
 {
+	
 	#define HELP "Usage: ./palindrome [parameter]\nWhere: parameter is one of:\n\t\t-h (help)\n\t\t-k (read from keyboard)\n\t\t-f file (read from file)\n\t\t-d letter (remove all palindromes which start by this letter)\n\t\t-s (show data)\n\t\t-q (exit)\n";
+	
 	string input ("\0");
 	string original ("\0");
 	string command;
 
+	//always print the help at the begin
 	cout << HELP;	
 
 	do
 	{
+		//print a new prompt until -q
 		cout << "$ palindrome ";
 		getline(cin, command, '\n');
 		int myArgc = numWords(command);
-		char myArgv[myArgc];
+		queue<string> myArgv;
+		for (int i = 0; i < command.length(); ++i)
+		{
+			//add word to array
+		}
 	}
 	while(command != "-q");
 /*
