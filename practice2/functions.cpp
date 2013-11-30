@@ -20,7 +20,6 @@ int isPalindrome(string input){
 	}
 	return 1;
 }
-
 string rmSpace(const char* input)
 {
 	//remove spaces in the input string
