@@ -10,6 +10,14 @@ functions.o: functions.cpp
 main: main.cpp
 	g++ -c -Wall main.cpp -o main.o
 
+##SortedList
+SortedList.o: SortedList.cpp
+	g++ -c -Wall SortedList.cpp -o SortedList.o
+
+##debugging list
+listTester: listTester.cpp SortedList.o
+	g++ -Wall SortedList.o listTester.cpp -o tester
+
 clean:
 	rm -f *.o
 	rm -f palindrome
