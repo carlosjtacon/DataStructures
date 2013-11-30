@@ -30,9 +30,6 @@ int main()
 		//read command
 		getline(cin, command, '\n');
 
-		//create our own argc
-		int myArgc = numWords(command);
-
 		//create our own argv
 		vector<string> myArgv;
 		istringstream iss(command);
@@ -42,18 +39,25 @@ int main()
 			myArgv.push_back(token);
 		} 
 
+		//create our own argc
+		int myArgc = myArgv.size();
+
+		/*DEBUG
+		cout << myArgc << endl;
+		cout << myArgv.size() << endl;*/
+
 		//main method
 		if (myArgc == 1)
 		{
-			if (myArgv.at(1) == "-h")
+			if (myArgv[0] == "-h")
 			{
 				cout << HELP;
 			}
-			else if (myArgv.at(1) == "-s")
+			else if (myArgv[0] == "-s")
 			{
 				//show in the screen the number of queues in the list, the total number of palindromes in each queue and their starting letter
 			}
-			else if (myArgv.at(1) == "-k")
+			else if (myArgv[0] == "-k")
 			{
 				int i = 0;
 
@@ -71,15 +75,18 @@ int main()
 			}
 			else
 			{
-				cout << "Paremeter unknown " << myArgv.at(1) << endl;
-				cout << HELP;
+				if (myArgv[0] != "-q")
+				{
+					cout << "Paremeter unknown " << myArgv[0] << endl;
+					cout << HELP;
+				}
 			}
 		}
 		else if (myArgc == 2)
 		{
-			if (myArgv.at(1) == "-f")
+			if (myArgv[0] == "-f")
 			{
-				ifstream inputFile (myArgv.at(2));
+				ifstream inputFile (myArgv[1]);
 				if(inputFile.is_open())
 				{
 					string tmp;
@@ -98,13 +105,13 @@ int main()
 					cout << HELP;
 				}
 			}
-			else if (myArgv.at(1) == "-d")
+			else if (myArgv[0] == "-d")
 			{
 				//Remove all palindromes which start by a specific letter
 			}
 			else
 			{
-				cout << "Paremeter unknown " << myArgv.at(1) << endl;
+				cout << "Paremeter unknown " << myArgv[0] << endl;
 				cout << HELP;
 			}
 		}
