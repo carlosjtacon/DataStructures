@@ -79,7 +79,6 @@ int main()
 				if (myArgv[0] != "-q")
 				{
 					cout << "Paremeter unknown " << myArgv[0] << endl;
-					cout << HELP;
 				}
 			}
 		}
@@ -103,7 +102,6 @@ int main()
 				{
 					//filename does not exists
 					cout << "The file couldn't be opened, maybe doesn't exists :(\n";
-					cout << HELP;
 				}
 			}
 			else if (myArgv[0] == "-d")
@@ -113,13 +111,11 @@ int main()
 			else
 			{
 				cout << "Paremeter unknown " << myArgv[0] << endl;
-				cout << HELP;
 			}
 		}
 		else if (myArgc > 2)
 		{
 			cout << "There's way too much arguments :')\n";
-			cout << HELP;
 		}
 	}
 	while(command != "-q");
