@@ -61,7 +61,7 @@ int main()
 			{
 				int i = 0;
 
-				while(original!="q")
+				do
 				{
 					cout << "(" << i << ") "; i++;
 					getline(cin, original, '\n');
@@ -72,6 +72,7 @@ int main()
 						//add original to list
 					}
 				} 
+				while(original!="q");
 			}
 			else
 			{
