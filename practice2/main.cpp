@@ -7,6 +7,7 @@
 #include "queue.h"
 #include "stack.h"
 #include "functions.h"
+#include "SortedList.h"
 
 using namespace std;
 
@@ -68,7 +69,7 @@ int main()
 					if (isPalindrome(input) && original!="q")
 					{
 						//insert original in the list
-						//list.insert(original);
+						list.insert(original);
 					}
 				} 
 				while(original!="q");
@@ -95,7 +96,7 @@ int main()
 						if (isPalindrome(input))
 						{
 							//insert tmp in the list
-							//list.insert(tmp);
+							list.insert(tmp);
 						}
 					}
 				}	
@@ -108,7 +109,7 @@ int main()
 			else if (myArgv[0] == "-d")
 			{
 				//delete the node of the leter passed in parameter
-				//list.remove(myArgv[1]);
+				list.remove(myArgv[1].front());
 			}
 			else
 			{
