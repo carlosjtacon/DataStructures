@@ -1,6 +1,6 @@
 ##exec
-palindrome: functions.o main.cpp
-	g++ -Wall functions.o main.cpp -o palindrome
+palindrome: SortedList.o functions.o main.cpp
+	g++ -Wall SortedList.o functions.o main.cpp -o palindrome
 
 ##functions code
 functions.o: functions.cpp
