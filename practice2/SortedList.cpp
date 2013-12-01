@@ -5,6 +5,11 @@ SortedList::SortedList()
 	header = NULL;
 }
 
+listnode* SortedList::getHeader()
+{
+	return header;
+}
+
 bool SortedList::isEmpty()
 {
 	return header == NULL;
@@ -13,15 +18,11 @@ bool SortedList::isEmpty()
 void SortedList::insert(string input)
 {
 	listnode* pos = header;
-	if (isEmpty())
-	{
-		insertP(input);
-		return;
-	}
-	while (pos->next != NULL)
+	
+	while (pos != NULL)
 	{
 		string key = pos->data.front();
-		if (key[0] == input[0]) //found queue
+		if (key.front() == input.front()) //found queue
 		{
 			pos->data.enqueue(input);
 			return;
@@ -34,34 +35,53 @@ void SortedList::insert(string input)
 
 void SortedList::insertP(string input)
 {
-	listnode* pos = header;
+	cout << "insertP" << endl;
 	listnode* tmp = new listnode;
-	//create queue & insert input
-	Queue<string> queueNode = Queue<string>();
-	queueNode.enqueue(input);
 
 	if (tmp == NULL)
 	{
 		cout << "LIST FULL";
 		return;
 	} 
-
 	//add queue to new node
-	tmp->data = queueNode;
+	tmp->data.enqueue(input);
+
+	listnode* pos = header;
 
 	if (isEmpty())
 	{
-		header = tmp;
+		//add queue to new node
 		tmp->next = NULL;
 		tmp->prev = NULL;
+		header = tmp;
 		return;
 	}
-	while((pos->data.front().front() < input.front()) && (pos->next != NULL))
-		pos = pos->next;	
+	while(pos->next != NULL)
+	{
+		if (pos->data.front().front() < input.front())
+		{
+			pos = pos->next;
+
+		}
+		else
+			break;
+	}
 	//already have position to insert to
-	tmp->prev = pos->prev;
-	pos->prev = tmp;
-	tmp->next = pos;
+	if (pos->data.front().front() > input.front())
+	{
+		tmp->prev = pos->prev;
+		if (tmp->prev != NULL)
+		{
+			pos->prev->next = tmp;
+		}
+		pos->prev = tmp;
+		tmp->next = pos;
+	}else
+	{
+		tmp->prev = pos;
+		tmp->next = pos->next;
+		pos->next = tmp;
+	}
 }
 
 void SortedList::remove(char id)
@@ -77,13 +97,15 @@ void SortedList::remove(char id)
 }
 
 void SortedList::remove(listnode* pos)
-{
+{	
 	if (pos->prev == NULL)//first
 	{
 		header = pos->next;
+		pos->next->prev = NULL;
 	}else
 	{
 		pos->prev->next = pos->next;
+		pos->next->prev = pos->prev;
 	}
 	delete pos;
 }
@@ -107,12 +129,19 @@ void SortedList::printList()
 void SortedList::printQ(Queue<string> queue)
 {
 	while(!queue.isEmpty())
-		cout << queue.dequeue() + "->";
-	cout << "\n";
+		cout << queue.dequeue() << "->";
+	cout << endl;
 }
 
 SortedList::~SortedList()
 {
-	while (!isEmpty())
-		remove(header);
+		listnode* tmp;
+		while(!isEmpty())
+		{
+			tmp=header;
+			header = header->next;
+			header->prev = NULL;
+			delete tmp;
+			cout << "MUEREPUTA" << endl;
+		}
 }

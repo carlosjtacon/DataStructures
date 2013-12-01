@@ -14,6 +14,7 @@ private:
 
 public:
 	SortedList();	
+	listnode* getHeader();
 	bool isEmpty();
 	void insert(string input);
 	void insertP(string input);
