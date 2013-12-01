@@ -19,6 +19,8 @@ int main()
 	string original ("\0");
 	string command;
 
+	SortedList list;
+
 	//always print the help at the begin
 	cout << HELP;	
 
@@ -41,10 +43,6 @@ int main()
 
 		//create our own argc
 		int myArgc = myArgv.size();
-
-		/*DEBUG
-		cout << myArgc << endl;
-		cout << myArgv.size() << endl;*/
 
 		//main method
 		if (myArgc == 1)
@@ -69,7 +67,8 @@ int main()
 
 					if (isPalindrome(input) && original!="q")
 					{
-						//add original to list
+						//insert original in the list
+						//list.insert(original);
 					}
 				} 
 				while(original!="q");
@@ -92,9 +91,11 @@ int main()
 					string tmp;
 					while(getline(inputFile, tmp))
 					{
-						if (isPalindrome(tmp))
+						input = rmSpace(tmp);
+						if (isPalindrome(input))
 						{
-							//add tmp to list
+							//insert tmp in the list
+							//list.insert(tmp);
 						}
 					}
 				}	
@@ -106,7 +107,8 @@ int main()
 			}
 			else if (myArgv[0] == "-d")
 			{
-				//Remove all palindromes which start by a specific letter
+				//delete the node of the leter passed in parameter
+				//list.remove(myArgv[1]);
 			}
 			else
 			{
