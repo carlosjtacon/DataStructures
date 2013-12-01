@@ -10,7 +10,7 @@
 class SortedList
 {
 private:
-	*listnode header;
+	listnode* header;
 
 public:
 	SortedList();	
@@ -18,9 +18,9 @@ public:
 	void insert(string input);
 	void insertP(string input);
 	void remove(char id);
-	void remove(*listnode pos);
+	void remove(listnode* pos);
 	void printList();
-	void printQ();
+	void printQ(Queue<string> queue);
 	~SortedList();
 };
 
