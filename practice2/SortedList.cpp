@@ -63,6 +63,7 @@ void SortedList::insertP(string input)
 				pos->prev->next = tmp;
 			}
 			tmp->prev = pos->prev;
+			pos->prev = tmp;
 			return;
 		}
 		pos = pos->next;		
@@ -75,6 +76,7 @@ void SortedList::insertP(string input)
 			pos->prev->next = tmp;
 		}
 		tmp->prev = pos->prev;
+		pos->prev = tmp;
 	}else
 	{
 		tmp->prev = pos;
@@ -85,6 +87,8 @@ void SortedList::insertP(string input)
 
 int SortedList::remove(char id)
 {	
+	if (isEmpty())
+		return 0;
 	//find requested position
 	listnode* pos = header;
 	while (pos->data.front().front() != id)
@@ -100,18 +104,24 @@ int SortedList::remove(char id)
 
 void SortedList::remove(listnode* pos)
 {	
-	if (pos->prev == NULL)//first
+	if (pos == header)//first
 	{
 		header = pos->next;
 		if (header != NULL)
 			header->prev = NULL;
 	}else if (pos->next == NULL)//last
 	{
+		cout << "llega"<<endl;
 		pos->prev->next = NULL;
-	}else
+		pos->next = NULL;
+		pos->prev = NULL;
+	}else //intermedio
 	{
 		pos->prev->next = pos->next;
 		pos->next->prev = pos->prev;
+		pos->next = NULL;
+		pos->prev = NULL;
+		cout << "llega2"<<endl;
 	}
 	delete pos;
 }
