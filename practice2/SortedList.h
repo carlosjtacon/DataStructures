@@ -18,7 +18,7 @@ public:
 	bool isEmpty();
 	void insert(string input);
 	void insertP(string input);
-	void remove(char id);
+	int remove(char id);
 	void remove(listnode* pos);
 	void printList();
 	void printQ(Queue<string> queue);

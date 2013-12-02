@@ -83,16 +83,19 @@ void SortedList::insertP(string input)
 	}
 }
 
-void SortedList::remove(char id)
+int SortedList::remove(char id)
 {	
 	//find requested position
 	listnode* pos = header;
-	while (pos->data.front().front() < id && pos->next != NULL)
+	while (pos->data.front().front() != id)
 	{
-		pos->next = pos->next->next;
+		pos= pos->next;
+		if (pos == NULL)
+			return 0;
 	}
 	//already have position, call delete method
 	remove(pos);
+	return 1;
 }
 
 void SortedList::remove(listnode* pos)
@@ -124,7 +127,7 @@ void SortedList::printList()
 
 	while(pos != NULL)
 	{
-		printQ(pos->data);
+		
 		pos = pos->next;
 	}
 }
