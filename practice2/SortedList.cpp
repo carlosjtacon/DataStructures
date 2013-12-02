@@ -17,63 +17,64 @@ bool SortedList::isEmpty()
 
 void SortedList::insert(string input)
 {
-	listnode* pos = header;
-	
-	while (pos != NULL)
+	if (isEmpty())
 	{
-		string key = pos->data.front();
-		if (key.front() == input.front()) //found queue
+		insertP(input);
+		return;
+	}
+
+	char key = input.front();
+	listnode* pos = header;
+	while(pos->next != NULL)//while not last
+	{
+		if (pos->data.front().front() == key)//if found
 		{
 			pos->data.enqueue(input);
 			return;
 		}
 		pos= pos->next;
 	}
-	//call to insert method
-	insertP(input);
+	if (pos->data.front().front() == key)
+		pos->data.enqueue(input);
+	else
+		insertP(input);
 }
 
 void SortedList::insertP(string input)
 {
 	listnode* tmp = new listnode;
-
-	if (tmp == NULL)
-	{
-		cout << "LIST FULL";
-		return;
-	} 
-	//add queue to new node
 	tmp->data.enqueue(input);
-
-	listnode* pos = header;
-
 	if (isEmpty())
 	{
-		//add queue to new node
-		tmp->next = NULL;
 		tmp->prev = NULL;
+		tmp->next = NULL;
 		header = tmp;
 		return;
 	}
-	while(pos->next != NULL)
+	listnode* pos = header;
+	char key = input.front();
+	while(pos->next != NULL)//while not last
 	{
-		if (pos->data.front().front() < input.front())
+		if (pos->data.front().front() > key)//if found
 		{
-			pos = pos->next;
+			tmp->next = pos;
+			if (pos->prev != NULL)
+			{
+				pos->prev->next = tmp;
+			}
+			tmp->prev = pos->prev;
+			return;
 		}
-		else
-			break;
-	}
-	//already have position to insert to
-	if (pos->data.front().front() > input.front())
+		pos = pos->next;		
+	}//if last
+	if (pos->data.front().front() >key)
 	{
-		tmp->prev = pos->prev;
-		if (tmp->prev != NULL)
+		tmp->next = pos;
+		if (pos->prev != NULL)
 		{
 			pos->prev->next = tmp;
 		}
-		pos->prev = tmp;
-		tmp->next = pos;
+		tmp->prev = pos->prev;
 	}else
 	{
 		tmp->prev = pos;
@@ -88,6 +89,7 @@ void SortedList::remove(char id)
 	listnode* pos = header;
 	while (pos->data.front().front() < id && pos->next != NULL)
 	{
+		cout << "REMOVE char" << endl;
 		pos->next = pos->next->next;
 	}
 	//already have position, call delete method
@@ -96,17 +98,24 @@ void SortedList::remove(char id)
 
 void SortedList::remove(listnode* pos)
 {	
-	listnode* tmp = pos;
+	cout << "REMOVE" << endl;
 	if (pos->prev == NULL)//first
 	{
-		header = header->next;
-		//header->next->prev = NULL;
+		header = pos->next;
+		if (header != NULL)
+			header->prev = NULL;
+	}else if (pos->next == NULL)//last
+	{
+		pos->prev->next = NULL;
 	}else
 	{
 		pos->prev->next = pos->next;
 		pos->next->prev = pos->prev;
 	}
-	delete tmp;
+	cout << "LLEGA1"<<endl;
+	delete pos;
+	cout << "LLEGA2"<<endl;
+
 }
 
 void SortedList::printList()
@@ -134,13 +143,10 @@ void SortedList::printQ(Queue<string> queue)
 
 SortedList::~SortedList()
 {
-	/*listnode* tmp = header;
-	cout << header->data.front().front()<<endl;
+	cout << "LLEGA D" << endl;
 	while(!isEmpty())
 	{
-		header = header->next;
-		header->prev = NULL;
-		delete tmp;
+		remove(header);
 	}
-*/
+
 }
