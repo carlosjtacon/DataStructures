@@ -138,7 +138,7 @@ string SortedList::toString()
 
 		pos = pos->next;
 	}
-	value << "===\nTOTAL: "<<total<<"\n";
+	value << "===\nNODES IN LIST: "<<total<<"\n";
 	return value.str();
 }
 
