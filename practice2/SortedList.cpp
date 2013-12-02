@@ -5,11 +5,6 @@ SortedList::SortedList()
 	header = NULL;
 }
 
-listnode* SortedList::getHeader()
-{
-	return header;
-}
-
 bool SortedList::isEmpty()
 {
 	return header == NULL;
@@ -111,7 +106,6 @@ void SortedList::remove(listnode* pos)
 			header->prev = NULL;
 	}else if (pos->next == NULL)//last
 	{
-		cout << "llega"<<endl;
 		pos->prev->next = NULL;
 	}else //intermedio
 	{
@@ -146,13 +140,6 @@ string SortedList::toString()
 	}
 	value << "===\nTOTAL: "<<total<<"\n";
 	return value.str();
-}
-
-void SortedList::printQ(Queue<string> queue)
-{
-	while(!queue.isEmpty())
-		cout << queue.dequeue() << "->";
-	cout << endl;
 }
 
 SortedList::~SortedList()

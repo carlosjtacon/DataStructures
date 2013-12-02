@@ -15,14 +15,12 @@ private:
 
 public:
 	SortedList();	
-	listnode* getHeader();
 	bool isEmpty();
 	void insert(string input);
 	void insertP(string input);
 	int remove(char id);
 	void remove(listnode* pos);
 	string toString();
-	void printQ(Queue<string> queue);
 	~SortedList();
 };
 
