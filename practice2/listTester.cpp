@@ -19,5 +19,8 @@ int main()
 	list.insert(str4);
 	list.insert(str5);
 	list.printList();
+	list.remove('e');
+	list.printList();
+
 	return 0;
 }

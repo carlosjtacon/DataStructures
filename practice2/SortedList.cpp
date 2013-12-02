@@ -35,7 +35,6 @@ void SortedList::insert(string input)
 
 void SortedList::insertP(string input)
 {
-	cout << "insertP" << endl;
 	listnode* tmp = new listnode;
 
 	if (tmp == NULL)
@@ -61,7 +60,6 @@ void SortedList::insertP(string input)
 		if (pos->data.front().front() < input.front())
 		{
 			pos = pos->next;
-
 		}
 		else
 			break;
@@ -98,16 +96,17 @@ void SortedList::remove(char id)
 
 void SortedList::remove(listnode* pos)
 {	
+	listnode* tmp = pos;
 	if (pos->prev == NULL)//first
 	{
-		header = pos->next;
-		pos->next->prev = NULL;
+		header = header->next;
+		//header->next->prev = NULL;
 	}else
 	{
 		pos->prev->next = pos->next;
 		pos->next->prev = pos->prev;
 	}
-	delete pos;
+	delete tmp;
 }
 
 void SortedList::printList()
@@ -135,13 +134,13 @@ void SortedList::printQ(Queue<string> queue)
 
 SortedList::~SortedList()
 {
-		listnode* tmp;
-		while(!isEmpty())
-		{
-			tmp=header;
-			header = header->next;
-			header->prev = NULL;
-			delete tmp;
-			cout << "MUEREPUTA" << endl;
-		}
+	/*listnode* tmp = header;
+	cout << header->data.front().front()<<endl;
+	while(!isEmpty())
+	{
+		header = header->next;
+		header->prev = NULL;
+		delete tmp;
+	}
+*/
 }
