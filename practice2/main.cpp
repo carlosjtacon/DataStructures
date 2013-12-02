@@ -55,7 +55,7 @@ int main()
 			else if (myArgv[0] == "-s")
 			{
 				//show in the screen the number of queues in the list, the total number of palindromes in each queue and their starting letter
-				//cout << list.toString() << endl;
+				cout << list.toString() << endl;
 			}
 			else if (myArgv[0] == "-k")
 			{
