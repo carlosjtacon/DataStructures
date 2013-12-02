@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Sortedlist.h"
-#include "queue.h"
+#include "queuestring.h"
 
 int main()
 {

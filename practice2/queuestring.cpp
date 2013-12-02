@@ -23,7 +23,7 @@ void Queuestring::enqueue(string c)	//Insert an element at the rear of the queue
 	nodestring* _current;
 	_current= new nodestring;
 	_current->next=NULL;
-	_current->data=c;
+	_current->data= c;
 
 	if (isEmpty())
 	{
