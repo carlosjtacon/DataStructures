@@ -93,7 +93,7 @@ int Queue<T>::size()
 	node<T>* tmp = _front;
 	int cont = 0;
 
-	while(tmp->next != NULL)
+	while(tmp != NULL)
 	{
 		tmp = tmp->next;
 		cont++;
