@@ -61,6 +61,8 @@ int main()
 			{
 				int i = 0;
 
+				cout << "(-q to exit)" << endl;
+
 				do
 				{
 					cout << "(" << i << ") "; i++;
