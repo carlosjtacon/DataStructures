@@ -6,8 +6,8 @@
 #include <vector>
 #include "queue.h"
 #include "stack.h"
-#include "functions.h"
 #include "SortedList.h"
+#include "functions.h"
 
 using namespace std;
 
@@ -55,6 +55,7 @@ int main()
 			else if (myArgv[0] == "-s")
 			{
 				//show in the screen the number of queues in the list, the total number of palindromes in each queue and their starting letter
+				//cout << list.toString() << endl;
 			}
 			else if (myArgv[0] == "-k")
 			{
@@ -66,13 +67,17 @@ int main()
 					getline(cin, original, '\n');
 					input = rmSpace(original);
 
-					if (isPalindrome(input) && original!="q")
+					if (isPalindrome(input))
 					{
 						//insert original in the list
 						list.insert(original);
+						cout << "Palindrome inserted!" << endl;
 					}
+					else
+						if (original!="-q")
+							cout << "This is not palindrome, then not inserted!" << endl;
 				} 
-				while(original!="q");
+				while(original!="-q");
 			}
 			else
 			{
@@ -86,6 +91,8 @@ int main()
 		{
 			if (myArgv[0] == "-f")
 			{
+				int cont0 = 0, cont1 = 0;
+
 				ifstream inputFile (myArgv[1]);
 				if(inputFile.is_open())
 				{
@@ -97,8 +104,13 @@ int main()
 						{
 							//insert tmp in the list
 							list.insert(tmp);
+							cont1++;
 						}
+						else
+							cont0++;
 					}
+					cout << cont1 << " palindromes inserted." << endl;
+					cout << cont0 << " sentences that are not palindrome, not inserted." << endl;
 				}	
 				else
 				{
@@ -109,7 +121,13 @@ int main()
 			else if (myArgv[0] == "-d")
 			{
 				//delete the node of the leter passed in parameter
-				list.remove(myArgv[1].front());
+				if (myArgv[1].length() == 1)
+					if(list.remove(myArgv[1].front()))
+						cout << "Removed!" << endl;
+					else
+						cout<< "Node does not exists!" << endl;
+				else
+					cout << "just one char pleaaaaaase :)" << endl;
 			}
 			else
 			{

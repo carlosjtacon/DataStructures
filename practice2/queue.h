@@ -23,6 +23,7 @@ public:
 	T rear();
 	void makenull();
 	bool isEmpty();
+	int size();
 };
 
 /* we need to include the implementation code in queue.cpp because we are using structures

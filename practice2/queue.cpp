@@ -87,3 +87,17 @@ bool Queue<T>::isEmpty()
 	return (_front == NULL);
 }
 
+template <typename T>
+int Queue<T>::size()
+{
+	node<T>* tmp = _front;
+	int cont = 0;
+
+	while(tmp->next != NULL)
+	{
+		tmp = tmp->next;
+		cont++;
+	}
+
+	return cont;
+}
