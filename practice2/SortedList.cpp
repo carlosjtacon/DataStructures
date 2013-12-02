@@ -54,9 +54,9 @@ void SortedList::insertP(string input)
 		{
 			tmp->next = pos;
 			if (pos->prev != NULL)
-			{
 				pos->prev->next = tmp;
-			}
+			if (pos == header)//if first
+				header = tmp;
 			tmp->prev = pos->prev;
 			pos->prev = tmp;
 			return;
@@ -67,9 +67,9 @@ void SortedList::insertP(string input)
 	{
 		tmp->next = pos;
 		if (pos->prev != NULL)
-		{
 			pos->prev->next = tmp;
-		}
+		if (pos == header)
+			header = tmp;
 		tmp->prev = pos->prev;
 		pos->prev = tmp;
 	}else
