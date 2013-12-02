@@ -21,7 +21,7 @@ public:
 	void remove(char id);
 	void remove(listnode* pos);
 	void printList();
-	void printQ(Queue<string> queue);
+	void printQ(Queue<char*> queue);
 	~SortedList();
 };
 

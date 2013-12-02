@@ -17,6 +17,8 @@ bool SortedList::isEmpty()
 
 void SortedList::insert(string input)
 {
+	char* auxin = new char[input.length() +1];
+	std::strcpy(auxin, input.c_str());
 	if (isEmpty())
 	{
 		insertP(input);
@@ -27,23 +29,25 @@ void SortedList::insert(string input)
 	listnode* pos = header;
 	while(pos->next != NULL)//while not last
 	{
-		if (pos->data.front().front() == key)//if found
+		if (pos->data.front()[0] == key)//if found
 		{
-			pos->data.enqueue(input);
+			pos->data.enqueue(auxin);
 			return;
 		}
 		pos= pos->next;
 	}
-	if (pos->data.front().front() == key)
-		pos->data.enqueue(input);
+	if (pos->data.front()[0] == key)
+		pos->data.enqueue(auxin);
 	else
 		insertP(input);
 }
 
 void SortedList::insertP(string input)
 {
+	char* auxin = new char[input.length() +1];
+	std::strcpy(auxin, input.c_str());
 	listnode* tmp = new listnode;
-	tmp->data.enqueue(input);
+	tmp->data.enqueue(auxin);
 	if (isEmpty())
 	{
 		tmp->prev = NULL;
@@ -55,7 +59,7 @@ void SortedList::insertP(string input)
 	char key = input.front();
 	while(pos->next != NULL)//while not last
 	{
-		if (pos->data.front().front() > key)//if found
+		if (pos->data.front()[0] > key)//if found
 		{
 			tmp->next = pos;
 			if (pos->prev != NULL)
@@ -67,7 +71,7 @@ void SortedList::insertP(string input)
 		}
 		pos = pos->next;		
 	}//if last
-	if (pos->data.front().front() >key)
+	if (pos->data.front()[0] >key)
 	{
 		tmp->next = pos;
 		if (pos->prev != NULL)
@@ -87,7 +91,7 @@ void SortedList::remove(char id)
 {	
 	//find requested position
 	listnode* pos = header;
-	while (pos->data.front().front() < id && pos->next != NULL)
+	while (pos->data.front()[0] < id && pos->next != NULL)
 	{
 		cout << "REMOVE char" << endl;
 		pos->next = pos->next->next;
@@ -134,10 +138,11 @@ void SortedList::printList()
 	}
 }
 
-void SortedList::printQ(Queue<string> queue)
+void SortedList::printQ(Queue<char*> queue)
 {
-	while(!queue.isEmpty())
-		cout << queue.dequeue() << "->";
+	Queue<char*> toDelete = queue;
+	while(!toDelete.isEmpty())
+		cout << toDelete.dequeue() << "->";
 	cout << endl;
 }
 

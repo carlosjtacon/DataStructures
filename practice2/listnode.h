@@ -6,7 +6,7 @@
 
 struct listnode
 {
-	Queue<string> data;
+	Queue<char*> data;
 	listnode* next;
 	listnode* prev;
 };
