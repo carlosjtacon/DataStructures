@@ -1,4 +1,5 @@
 #include "SortedList.h"
+using namespace std;
 
 SortedList::SortedList()
 {
@@ -134,7 +135,7 @@ void SortedList::printList()
 	}
 }
 
-void SortedList::printQ(Queue<string> queue)
+void SortedList::printQ(Queuestring queue)
 {
 	while(!queue.isEmpty())
 		cout << queue.dequeue() << "->";

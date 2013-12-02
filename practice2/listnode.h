@@ -1,4 +1,4 @@
-#include "queue.h"
+#include "queuestring.h"
 #include "string.h"
 
 #ifndef LISTNODE_H
@@ -6,7 +6,7 @@
 
 struct listnode
 {
-	Queue<string> data;
+	Queuestring data;
 	listnode* next;
 	listnode* prev;
 };

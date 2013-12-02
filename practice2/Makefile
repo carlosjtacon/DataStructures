@@ -15,8 +15,12 @@ SortedList.o: SortedList.cpp
 	g++ -c -Wall SortedList.cpp -o SortedList.o
 
 ##debugging list
-listTester: listTester.cpp SortedList.o
-	g++ -Wall SortedList.o listTester.cpp -o tester
+listTester: listTester.cpp SortedList.o queuestring.o
+	g++ -Wall SortedList.o listTester.cpp queuestring.o -o tester
+
+##queuestring
+queuestring.o: queuestring.cpp
+	g++ -c -Wall queuestring.cpp -o queuestring.o
 
 clean:
 	rm -f *.o

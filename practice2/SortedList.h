@@ -2,7 +2,7 @@
 #include <string.h>
 #include <iostream>
 #include <stdlib.h>
-#include "queue.h"
+#include "queuestring.h"
 
 #ifndef SORTEDLIST_H
 #define SORTEDLIST_H
@@ -21,7 +21,7 @@ public:
 	void remove(char id);
 	void remove(listnode* pos);
 	void printList();
-	void printQ(Queue<string> queue);
+	void printQ(Queuestring queue);
 	~SortedList();
 };
 
