@@ -116,12 +116,16 @@ void SortedList::remove(listnode* pos)
 	delete pos;
 }
 
-stringstream SortedList::toString()
+string SortedList::toString()
 {
-	if (isEmpty())
-		return "empty \n";
 	stringstream value;
-	
+
+	if (isEmpty())
+	{
+		value << "empty \n";
+		return value.str();
+	}
+		
 	listnode* pos = header;
 
 	int total = 0;
@@ -136,7 +140,7 @@ stringstream SortedList::toString()
 		pos = pos->next;
 	}
 	value << "=\nTOTAL: "<<total<<"\n";
-	return value;
+	return value.str();
 }
 
 void SortedList::printQ(Queue<string> queue)

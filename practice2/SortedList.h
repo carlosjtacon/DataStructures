@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "queue.h"
+#include <sstream>
 
 #ifndef SORTEDLIST_H
 #define SORTEDLIST_H
