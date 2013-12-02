@@ -113,15 +113,10 @@ void SortedList::remove(listnode* pos)
 	{
 		cout << "llega"<<endl;
 		pos->prev->next = NULL;
-		pos->next = NULL;
-		pos->prev = NULL;
 	}else //intermedio
 	{
 		pos->prev->next = pos->next;
 		pos->next->prev = pos->prev;
-		pos->next = NULL;
-		pos->prev = NULL;
-		cout << "llega2"<<endl;
 	}
 	delete pos;
 }
