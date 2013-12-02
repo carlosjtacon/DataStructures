@@ -20,7 +20,7 @@ public:
 	void insertP(string input);
 	int remove(char id);
 	void remove(listnode* pos);
-	void printList();
+	string toString();
 	void printQ(Queue<string> queue);
 	~SortedList();
 };

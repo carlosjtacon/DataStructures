@@ -116,20 +116,27 @@ void SortedList::remove(listnode* pos)
 	delete pos;
 }
 
-void SortedList::printList()
+stringstream SortedList::toString()
 {
 	if (isEmpty())
-	{		
-		cout << "LIST EMPTY \n";
-		return;
-	}
+		return "empty \n";
+	stringstream value;
+	
 	listnode* pos = header;
 
+	int total = 0;
+	int count = 0;
+
 	while(pos != NULL)
-	{
-		
+	{		
+		count = pos->data.size();
+		total++;
+		value << pos->data.front().front() << "(x" << count << ")\n |\n";
+
 		pos = pos->next;
 	}
+	value << "=\nTOTAL: "<<total<<"\n";
+	return value;
 }
 
 void SortedList::printQ(Queue<string> queue)
