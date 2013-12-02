@@ -139,7 +139,7 @@ string SortedList::toString()
 
 		pos = pos->next;
 	}
-	value << "=\nTOTAL: "<<total<<"\n";
+	value << "===\nTOTAL: "<<total<<"\n";
 	return value.str();
 }
 
