@@ -7,7 +7,7 @@
 
 int main()
 {
-	SortedList list = SortedList();
+	SortedList list;
 	string str1 = "ala";
 	string str2 = "ela";
 	string str3 = "ila";
@@ -18,7 +18,7 @@ int main()
 	list.insert(str3);
 	list.insert(str4);
 	list.insert(str5);
-	//list.printList();
+	cout << list.toString();
 	list.remove('e');
 	//list.printList();
 
