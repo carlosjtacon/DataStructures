@@ -89,7 +89,6 @@ void SortedList::remove(char id)
 	listnode* pos = header;
 	while (pos->data.front().front() < id && pos->next != NULL)
 	{
-		cout << "REMOVE char" << endl;
 		pos->next = pos->next->next;
 	}
 	//already have position, call delete method
@@ -98,7 +97,6 @@ void SortedList::remove(char id)
 
 void SortedList::remove(listnode* pos)
 {	
-	cout << "REMOVE" << endl;
 	if (pos->prev == NULL)//first
 	{
 		header = pos->next;
@@ -112,10 +110,7 @@ void SortedList::remove(listnode* pos)
 		pos->prev->next = pos->next;
 		pos->next->prev = pos->prev;
 	}
-	cout << "LLEGA1"<<endl;
 	delete pos;
-	cout << "LLEGA2"<<endl;
-
 }
 
 void SortedList::printList()
@@ -143,7 +138,6 @@ void SortedList::printQ(Queue<string> queue)
 
 SortedList::~SortedList()
 {
-	cout << "LLEGA D" << endl;
 	while(!isEmpty())
 	{
 		remove(header);
