@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "node.h" //same node (?)
 
 #ifndef TREE_H
@@ -12,7 +14,8 @@ private:
 public:
 	Tree();
 	~Tree();
-	
+	void add(string input);
+
 };
 
 //#include "tree.cpp"
