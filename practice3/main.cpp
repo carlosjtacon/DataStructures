@@ -20,7 +20,7 @@ int main()
 	string original ("\0");
 	string command;
 
-	//Tree tree;
+	Tree<string> tree;
 
 	//always print the help at the begin
 	cout << HELP;	
@@ -71,7 +71,7 @@ int main()
 					if (isPalindrome(input))
 					{
 						//insert original in the tree
-						//tree.add(original);
+						tree.add(original);
 						cout << "Palindrome inserted!" << endl;
 					}
 					else
@@ -112,7 +112,7 @@ int main()
 						if (isPalindrome(input))
 						{
 							//insert tmp in the tree
-							//tree.add(tmp);
+							tree.add(tmp);
 							cont1++;
 						}
 						else

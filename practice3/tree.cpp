@@ -4,17 +4,20 @@ using namespace std;
 
 //try to use templates (?)
 
-Tree::Tree()
+template <typename T>
+Tree<T>::Tree()
 {
 	//constructor
 }
 
-Tree::~Tree()
+template <typename T>
+Tree<T>::~Tree()
 {
 	//destructor
 }
 
-void Tree::add(string input)
+template <typename T>
+void Tree<T>::add(string input)
 {
 	//code 
 }

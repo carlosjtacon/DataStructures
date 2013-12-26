@@ -5,19 +5,31 @@
 #ifndef TREE_H
 #define TREE_H
 
+template <typename T>
 class Tree
 {
 
 private:
 	//root ... (?)
+	node<T>* root;
 
 public:
 	Tree();
 	~Tree();
 	void add(string input);
 
+	/* 
+	parent: node tree -> node 
+	leftmost_child: node tree -> node 
+	right_sibling: node tree -> node 
+	label: node tree -> label
+	create: label tree tree -> tree 
+	root: tree -> node
+	makenull: tree -> tree 
+	*/
+
 };
 
-//#include "tree.cpp"
+#include "tree.cpp"
 
 #endif
