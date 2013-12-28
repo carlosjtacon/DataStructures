@@ -17,6 +17,9 @@ public:
 	Tree();
 	~Tree();
 	void add(string input);
+	void search();
+	void traverse();
+	void remove();
 
 	/* 
 	parent: node tree -> node 
