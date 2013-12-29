@@ -2,22 +2,17 @@
 
 using namespace std;
 
-//try to use templates (?)
-
-template <typename T>
-Tree<T>::Tree()
+Tree()
 {
 	root = NULL;
 }
 
-template <typename T>
-Tree<T>::~Tree()
+~Tree()
 {
 	//destructor
 }
 
-template <typename T>
-void Tree<T>::add(string input)
+void add(string input)
 {
 	if (root == NULL)
 	{

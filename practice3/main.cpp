@@ -20,7 +20,7 @@ int main()
 	string original ("\0");
 	string command;
 
-	Tree<string> tree;
+	Tree tree;
 
 	//always print the help at the begin
 	cout << HELP;	
