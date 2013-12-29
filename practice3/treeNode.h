@@ -8,6 +8,7 @@ struct treeNode
 	int bf;					//balance factor
 	treeNode* leftchild; 	//leftmostchild
 	treeNode* rightchild;	//rigthsibling
+	treeNode* parent;
 };
 
 #endif
