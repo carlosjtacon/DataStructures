@@ -1,10 +1,14 @@
 ##exec
-palindrome: functions.o main.cpp
-	g++ -Wall functions.o main.cpp -o palindrome
+palindrome: functions.o tree.o main.cpp
+	g++ -Wall functions.o tree.o main.cpp -o palindrome
 
 ##functions code
-functions.o: functions.cpp
+functions.o: functions.cpp functions.h
 	g++ -c -Wall functions.cpp -o functions.o
+
+##tree
+tree.o: tree.cpp tree.h
+	g++ -c -Wall tree.cpp -o tree.o
 
 ##just for checking main method
 main: main.cpp
