@@ -90,7 +90,12 @@ void Tree::insert(treeNode* input, treeNode* node)
 				insert(input, node->parent->leftchild);
 			}else if (strcmp(input->label, node->leftchild->label) > 0) //new > parent.leftchild
 			{
-				//movida de la hostia	
+				input->parent = node->parent;
+				input->rightchild = node;
+				input->leftchild = node->leftchild;
+				input->leftchild->parent = input;
+				node->parent = input;
+				node->leftchild = NULL;
 			}	
 			node->bf = 0;
 		}
