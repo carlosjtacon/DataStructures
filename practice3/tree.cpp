@@ -36,8 +36,8 @@ void Tree::insert(treeNode* input, treeNode* node)
 			input->parent->leftchild = input;
 		else if (strcmp(input->label, input->parent->label) > 0)
 			input->parent->rightchild = input;
-		newNode->leftchild = NULL;
-		newNode->rightchild = NULL;
+		input->leftchild = NULL;
+		input->rightchild = NULL;
 	}
 	else if (node->bf = 0)
 	{
@@ -66,7 +66,16 @@ void Tree::insert(treeNode* input, treeNode* node)
 			}
 			else if (strcmp(input->label, node->rightchild->label) < 0)
 			{
-				
+				input->parent = node->parent;
+				input->leftchild = node;
+				input->rightchild = node->rightchild;
+				input->rightchild->parent = input;
+				node->parent = input;
+				node->rightchild = NULL;	
+				if (strcmp(input->label, input->parent->label) < 0)
+					input->parent->leftchild = input;
+				else if (strcmp(input->label, input->parent->label) > 0)
+					input->parent->rightchild = input;
 			}			
 			node->bf = 0;
 		}
@@ -96,6 +105,10 @@ void Tree::insert(treeNode* input, treeNode* node)
 				input->leftchild->parent = input;
 				node->parent = input;
 				node->leftchild = NULL;
+				if (strcmp(input->label, input->parent->label) < 0)
+					input->parent->leftchild = input;
+				else if (strcmp(input->label, input->parent->label) > 0)
+					input->parent->rightchild = input;
 			}	
 			node->bf = 0;
 		}
