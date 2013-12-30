@@ -2,51 +2,48 @@
 
 using namespace std;
 
-Tree()
+Tree::Tree()
 {
 	root = NULL;
 }
 
-~Tree()
+Tree::~Tree()
 {
 	//destructor
 }
 
-void add(string input)
+void Tree::add(string input)
 {
+	treeNode* newNode = new treeNode;
+	newNode->label = input;
+	newNode->bf = 0;
+	newNode->palindrome = isPalindrome(input);
+	newNode->leftchild = NULL;
+	newNode->rightchild = NULL;
+	newNode->parent = NULL; //means newNode is root
 	if (root == NULL)
-	{
-		treeNode* newNode = new treeNode;
-
-		newNode->label = input;
-		newNode->bf = 0;
-		newNode->palindrome = isPalindrome(input);
-		newNode->leftchild = NULL;
-		newNode->rightchild = NULL;
-		newNode->parent = NULL; //means newNode is root
 		root = newNode;
-	}
 	else
 		insert(input, root);
 }
 
-void insert(string input, treeNode* node) 	//IMPORTANT: right now there's no 
-{											//pointer-linking between nodes, 
-	if (node == NULL)						//must find a way of linking before
-	{										//calling recursively
-		treeNode* newNode = new treeNode;
-
-		newNode->label = input;
-		newNode->bf = 0;
-		newNode->palindrome = isPalindrome(input);
+void Tree::insert(treeNode* input, treeNode* node)
+{						
+	input->parent = node;							
+	if (node == NULL)								
+	{			
+		if (strcmp(input->label, input->parent->label) < 0)
+			input->parent->leftchild = input;
+		else if (strcmp(input->label, input->parent->label) > 0)
+			input->parent->rightchild = input;
 		newNode->leftchild = NULL;
 		newNode->rightchild = NULL;
 	}
 	else if (node->bf = 0)
 	{
-		if (strcmp(input, node->label) < 0)
+		if (strcmp(input->label, node->label) < 0)
 			insert(input, node->leftchild);
-		else if (strcmp(input, node->label) > 0)
+		else if (strcmp(input->label, node->label) > 0)
 			insert(input, node->rightchild);
 		else
 		{
@@ -55,21 +52,21 @@ void insert(string input, treeNode* node) 	//IMPORTANT: right now there's no
 	}
 	else if (node->bf = 1)
 	{
-		if (strcmp(input,node->label) < 0)
+		if (strcmp(input->label,node->label) < 0)
 		{
 			insert(input, node->leftchild);
 			node->bf = 0;
 		}
-		else if (strcmp(input,node->label) > 0)
+		else if (strcmp(input->label,node->label) > 0)
 		{
-			if (strcmp(input, node->rightchild->label) > 0)
+			if (strcmp(input->label, node->rightchild->label) > 0)
 			{
 				swap(node, node->rightchild);
 				insert(input, node->parent->rightchild);
 			}
-			else if (strcmp(input, node->rightchild->label) < 0)
+			else if (strcmp(input->label, node->rightchild->label) < 0)
 			{
-				//movida de la hostia
+				
 			}			
 			node->bf = 0;
 		}
@@ -80,21 +77,21 @@ void insert(string input, treeNode* node) 	//IMPORTANT: right now there's no
 	}
 	else if (node->bf = -1)
 	{
-		if (strcmp(input, node->label) > 0) //new > parent
+		if (strcmp(input->label, node->label) > 0) //new > parent
 		{
 			insert(input, node->rightchild);
 			node->bf = 0;
 		}
-		else if (strcmp(input, node->label) < 0) //new < parent
+		else if (strcmp(input->label, node->label) < 0) //new < parent
 		{
-			if (strcmp(input, node->leftchild->label) < 0) // new < parent.leftchild
+			if (strcmp(input->label, node->leftchild->label) < 0) // new < parent.leftchild
 			{
 				swap(node, node->leftchild);
 				insert(input, node->parent->leftchild);
-			}else if (strcmp(input, node->leftchild->label) > 0) //new > parent.leftchild
+			}else if (strcmp(input->label, node->leftchild->label) > 0) //new > parent.leftchild
 			{
-				//movida de la hostia
-			}			
+				//movida de la hostia	
+			}	
 			node->bf = 0;
 		}
 		else
@@ -104,7 +101,7 @@ void insert(string input, treeNode* node) 	//IMPORTANT: right now there's no
 	}
 }
 
-void swap(treeNode* parent, treeNode* child)
+void Tree::swap(treeNode* parent, treeNode* child)
 {
 	child->parent = parent->parent;
 	parent->parent = child;
