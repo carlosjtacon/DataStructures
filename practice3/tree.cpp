@@ -57,3 +57,18 @@ void Tree::swap(treeNode* parent, treeNode* child)
 	else if (strcmp(child->label, parent->label) > 0)
 		child->leftchild = parent;
 }
+
+void search()
+{
+
+}
+
+void traverse()
+{
+
+}
+
+void remove()
+{
+	
+}
