@@ -78,6 +78,11 @@ void Tree::traverse(treeNode* node)
 	traverse(node->rightchild);
 }
 
+void Tree::traverse()
+{
+	traverse(tree->root);
+}
+
 void Tree::remove()
 {
 	

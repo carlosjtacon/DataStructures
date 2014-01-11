@@ -55,6 +55,7 @@ int main()
 			else if (myArgv[0] == "-s")
 			{
 				//Search and show on the screen those words that are repeated in the search tree (one word is repeated if it appears at least two times in the tree. The number of repetitions is not relevant). For each word you have to show whether or not is palindrome.
+				tree.search()
 			}
 			else if (myArgv[0] == "-k")
 			{
@@ -62,27 +63,23 @@ int main()
 
 				cout << "(-q to exit)" << endl;
 
-				do
+				while(1)
 				{
 					cout << "(" << i << ") "; i++;
 					getline(cin, original, '\n');
-					input = rmSpace(original);
-
-					if (isPalindrome(input))
-					{
-						//insert original in the tree
-						tree.add(original);
-						cout << "Palindrome inserted!" << endl;
-					}
+					
+					if (original.compare("-q")==0)
+						break;
+					if (original.find(" ") == string::npos)//no blank spaces
+						tree.insert(original);
 					else
-						if (original!="-q")
-							cout << "This is not palindrome, then not inserted!" << endl;
-				} 
-				while(original!="-q");
+						cout << "must be a single word" << endl;
+				}
 			}
 			else if (myArgv[0] == "-t")
 			{
 				//Traverse the search tree and show all words that are palindromes. These words have to be showed alphabetically sorted.
+				tree.traverse();
 			}
 			else if (myArgv[0] == "-d")
 			{
