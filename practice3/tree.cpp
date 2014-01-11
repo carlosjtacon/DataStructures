@@ -63,7 +63,7 @@ void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 		child->leftchild = parent;
 }
 
-void Tree::search()
+void Tree::search(treeNode *node)
 {
 	if(node == NULL)
 		return;
@@ -71,6 +71,11 @@ void Tree::search()
 	if(node.count > 0)
 		printf("%s | Palindrome: %s\n", node -> label, node.palindrome);
 	search(node->rightchild);
+}
+
+void Tree::search()
+{
+	search(tree->root)
 }
 
 void Tree::traverse(treeNode* node)
