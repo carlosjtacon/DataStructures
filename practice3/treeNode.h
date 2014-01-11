@@ -4,11 +4,11 @@
 struct treeNode
 {
 	string label;
-	int palindrom;			//1 = palindrom 0 != palindrome
-	int bf;					//balance factor
+	bool palindrome;		//1 = palindrom 0 != palindrome
+	int bf;					//balance factor	IF AVL
 	treeNode* leftchild; 	//leftmostchild
 	treeNode* rightchild;	//rigthsibling
-	treeNode* parent;
+	treeNode* parent;		
 };
 
 #endif
