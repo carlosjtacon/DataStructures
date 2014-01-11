@@ -12,7 +12,7 @@ Tree::~Tree()
 	//destructor
 }
 
-void Tree::insert(string input)
+void Tree::insert(string input)	//public method
 {
 	treeNode* newNode = new treeNode;
 	newNode->label = input;
@@ -27,7 +27,7 @@ void Tree::insert(string input)
 		insert(input, root);
 }
 
-void Tree::insert(treeNode* input, treeNode* node)
+void Tree::insert(treeNode* input, treeNode* node) //private method
 {						
 	if (node == NULL)
 	{
@@ -46,9 +46,14 @@ void Tree::insert(treeNode* input, treeNode* node)
 		input->parent = node;
 		insert(input, node->rightchild);
 	}
+	else
+	{
+		node->count++;
+		delete input;
+	}
 }
 
-void Tree::swap(treeNode* parent, treeNode* child)
+void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 {
 	child->parent = parent->parent;
 	parent->parent = child;
@@ -58,17 +63,17 @@ void Tree::swap(treeNode* parent, treeNode* child)
 		child->leftchild = parent;
 }
 
-void search()
+void Tree::search()
 {
 
 }
 
-void traverse()
+void Tree::traverse()
 {
 
 }
 
-void remove()
+void Tree::remove()
 {
 	
 }

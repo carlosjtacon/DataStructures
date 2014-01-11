@@ -11,12 +11,12 @@ class Tree
 private:
 	treeNode *root;
 	void insert(string input, treeNode* node);
+	void swap(treeNode* parent, treeNode* child);
 	
 public:
 	Tree();
 	~Tree();
 	void insert(string input);
-	void swap(treeNode* parent, treeNode* child);
 	void search();
 	void traverse();
 	void remove();
