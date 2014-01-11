@@ -110,5 +110,18 @@ void Tree::removeNotPalindromes()
 
 void Tree::remove(treeNode * node)
 {
-	
+	treeNode *aux;
+
+	if (node->leftchild == NULL && node->rightchild = NULL)		//leaf
+	{
+		delete(node);
+	}
+	else		//branch
+	{
+		aux = node;
+		while(node -> leftchild != NULL)
+			node = leftchild;
+		swap(node, aux);
+		delete(aux);
+	}
 }
