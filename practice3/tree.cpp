@@ -68,9 +68,14 @@ void Tree::search()
 
 }
 
-void Tree::traverse()
+void Tree::traverse(treeNode* node)
 {
-
+	if (node == NULL)
+		return;
+	traverse(node->leftchild);
+	if (node->isPalindrome)
+		printf("%s\n", node->label);
+	traverse(node->rightchild);
 }
 
 void Tree::remove()
