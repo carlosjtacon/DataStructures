@@ -14,7 +14,7 @@ private:
 public:
 	Tree();
 	~Tree();
-	void add(string input);
+	void insert(string input);
 	void insert(string input, treeNode* node);
 	void swap(treeNode* parent, treeNode* child);
 	void search();
