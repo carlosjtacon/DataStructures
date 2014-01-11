@@ -93,7 +93,22 @@ void Tree::traverse()
 	traverse(tree->root);
 }
 
-void Tree::remove()
+void removeNotPalindromes(treeNode* node)
+{
+	if (node == NULL)
+		return;
+	removeNotPalindromes(node->leftchild);
+	if(!node.palindrome)
+		remove(node);
+	removeNotPalindromes(node->rightchild);
+}
+
+void Tree::removeNotPalindromes()
+{
+	removeNotPalindromes(tree->root);
+}
+
+void Tree::remove(treeNode * node)
 {
 	
 }
