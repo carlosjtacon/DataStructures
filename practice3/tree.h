@@ -14,7 +14,7 @@ private:
         void add(treeNode* input, treeNode* node);
         void search(treeNode* node);
         void traverse(treeNode* node);
-        void remove(treeNode * node);
+        void removeNode(treeNode * node);
         void removeAllNotPalindromes(treeNode* node);
 
         //handling functions

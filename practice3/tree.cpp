@@ -90,7 +90,7 @@ void removeAllNotPalindromes(treeNode* node)	//private
 		return;
 	removeAllNotPalindromes(node->leftchild);
 	if(!node->palindrome)
-		remove(node);
+		removeNode(node);
 	removeAllNotPalindromes(node->rightchild);
 }
 
@@ -99,7 +99,7 @@ void Tree::removeAllNotPalindromes()	//public
 	removeAllNotPalindromes(tree->root);
 }
 
-void Tree::remove(treeNode* node)	//private (?)
+void Tree::removeNode(treeNode* node)	//private (?)
 {
 	treeNode *aux;
 
