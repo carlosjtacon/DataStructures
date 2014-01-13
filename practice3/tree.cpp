@@ -12,7 +12,7 @@ Tree::~Tree()
 	//destructor
 }
 
-void Tree::insert(string input)	//public method
+void Tree::add(string input)	//public method
 {
 	treeNode* newNode = new treeNode;
 	newNode->label = input;
@@ -24,10 +24,10 @@ void Tree::insert(string input)	//public method
 	if (root == NULL)
 		root = newNode;
 	else
-		insert(input, root);
+		add(input, root);
 }
 
-void Tree::insert(treeNode* input, treeNode* node) //private method
+void Tree::add(treeNode* input, treeNode* node) //private method
 {						
 	if (node == NULL)
 	{
@@ -39,17 +39,95 @@ void Tree::insert(treeNode* input, treeNode* node) //private method
 	else if (node->label < input->label)
 	{
 		input->parent = node;
-		insert(input, node->leftchild);
+		add(input, node->leftchild);
 	}
 	else if (node->label > input->label)
 	{
 		input->parent = node;
-		insert(input, node->rightchild);
+		add(input, node->rightchild);
 	}
 	else
 	{
 		node->count++;
 		delete input;
+	}
+}
+
+
+void Tree::search(treeNode *node)	//private
+{
+	if(node == NULL)
+		return;
+	search(node -> leftchild);
+	if(node->count > 0)
+		cout << node -> label << " | Palindrome: " << node->palindrome;
+	search(node->rightchild);
+}
+
+void Tree::search()	//public
+{
+	search(root)
+}
+
+void Tree::traverse(treeNode* node)	//private
+{
+	if (node == NULL)
+		return;
+	traverse(node->leftchild);
+	if (node->palindrome)
+		cout << node->label << endl;
+	traverse(node->rightchild);
+}
+
+void Tree::traverse()	//public
+{
+	traverse(tree->root);
+}
+
+void removeAllNotPalindromes(treeNode* node)	//private
+{
+	if (node == NULL)
+		return;
+	removeAllNotPalindromes(node->leftchild);
+	if(!node->palindrome)
+		remove(node);
+	removeAllNotPalindromes(node->rightchild);
+}
+
+void Tree::removeAllNotPalindromes()	//public
+{
+	removeAllNotPalindromes(tree->root);
+}
+
+void Tree::remove(treeNode * node)	//private (?)
+{
+	treeNode *aux;
+
+	if (node->leftchild == NULL && node->rightchild = NULL)		//leaf
+	{
+		delete(node);
+	}
+	else if (node->leftchild == NULL || node->rightchild = NULL)	//branch one child
+	{
+		if (node->leftchild)
+		{
+			remplaceNodeInParent(node->parent, node->leftchild);
+			node->leftchild->parent = node-> parent;
+		}
+		else
+		}
+			remplaceNodeInParent(node->parent, node->rightchild);
+			node->rightchild->parent = node->parent;
+		}
+		delete(node);
+	}
+	else	//branch two children
+	{
+		aux = node;							
+		while(aux -> leftchild)
+			aux = leftchild;
+		swap(node, aux);
+		delete(node);
 	}
 }
 
@@ -63,65 +141,13 @@ void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 		child->leftchild = parent;
 }
 
-void Tree::search(treeNode *node)
+void Tree::remplaceNodeInParent(treeNode* node, treeNode* child)
 {
-	if(node == NULL)
-		return;
-	search(node -> leftchild);
-	if(node.count > 0)
-		printf("%s | Palindrome: %s\n", node -> label, node.palindrome);
-	search(node->rightchild);
-}
-
-void Tree::search()
-{
-	search(tree->root)
-}
-
-void Tree::traverse(treeNode* node)
-{
-	if (node == NULL)
-		return;
-	traverse(node->leftchild);
-	if (node->isPalindrome)
-		printf("%s\n", node->label);
-	traverse(node->rightchild);
-}
-
-void Tree::traverse()
-{
-	traverse(tree->root);
-}
-
-void removeNotPalindromes(treeNode* node)
-{
-	if (node == NULL)
-		return;
-	removeNotPalindromes(node->leftchild);
-	if(!node.palindrome)
-		remove(node);
-	removeNotPalindromes(node->rightchild);
-}
-
-void Tree::removeNotPalindromes()
-{
-	removeNotPalindromes(tree->root);
-}
-
-void Tree::remove(treeNode * node)
-{
-	treeNode *aux;
-
-	if (node->leftchild == NULL && node->rightchild = NULL)		//leaf
+	if(node->parent)
 	{
-		delete(node);
-	}
-	else		//branch
-	{
-		aux = node;
-		while(node -> leftchild != NULL)
-			node = leftchild;
-		swap(node, aux);
-		delete(aux);
+		if (node->parent->leftchild == node)
+			node->parent->leftchild == child;
+		else
+			node->parent->rightchild == child;
 	}
 }

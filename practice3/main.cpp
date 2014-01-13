@@ -14,7 +14,15 @@ using namespace std;
 int main()
 {
 	
-	#define HELP "Usage: $ palindrome [parameter]\nWhere: parameter is one of:\n\t\t-h (help)\n\t\t-k (read from keyboard)\n\t\t-f file (read from file)\n\t\t-d (remove all words that are not palindromes)\n\t\t-s (search and show words that are repeated in the tree)\n\t\t-t (traverse the tree and show all palindrome words)\n\t\t-q (exit)\n";
+	#define HELP "Usage: $ palindrome [parameter]\n
+		Where: parameter is one of:\n
+			\t\t-h (help)\n
+			\t\t-k (read from keyboard)\n
+			\t\t-f file (read from file)\n
+			\t\t-d (remove all words that are not palindromes)\n
+			\t\t-s (search and show words that are repeated in the tree)\n
+			\t\t-t (traverse the tree and show all palindrome words)\n
+			\t\t-q (exit)\n";
 	
 	string input ("\0");
 	string original ("\0");
@@ -71,19 +79,19 @@ int main()
 					if (original.compare("-q")==0)
 						break;
 					if (original.find(" ") == string::npos)//no blank spaces
-						tree.insert(original);
+						tree.add(original);
 					else
 						cout << "must be a single word" << endl;
 				}
 			}
-			else if (myArgv[0] == "-t")
+			else if (myArgv[0] == "-t")//traverse inorder showing palindromes
 			{
-				//Traverse the search tree and show all words that are palindromes. These words have to be showed alphabetically sorted.
 				tree.traverse();
 			}
 			else if (myArgv[0] == "-d")
 			{
 				//Remove all words that are not palindromes keeping the structure of the search tree.
+
 			}
 			else
 			{
@@ -108,7 +116,7 @@ int main()
 						input = rmSpace(tmp);
 						if (isPalindrome(input))
 						{
-							//insert tmp in the tree
+							//add tmp in the tree
 							tree.add(tmp);
 							cont1++;
 						}
