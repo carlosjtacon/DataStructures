@@ -32,23 +32,27 @@ void Tree::add(treeNode* input, treeNode* node) //private method
 {						
 	if (node == NULL)
 	{
-		if (input->parent->label < input->label)
+		cout << "NULL case" << endl;
+		if (input->label < input->parent->label)
 			input->parent->leftchild = input;
-		else if (input->parent->label > input->label)
+		else if (input->label > input->parent->label)
 			input->parent->rightchild = input;
 	}
-	else if (node->label < input->label)
+	else if (input->label < node->label)
 	{
+		cout << input->label <<" < " << node->label << endl;
 		input->parent = node;
 		add(input, node->leftchild);
 	}
-	else if (node->label > input->label)
+	else if (input->label > node->label)
 	{
+		cout << input->label <<" > " << node->label << endl;
 		input->parent = node;
 		add(input, node->rightchild);
 	}
 	else
 	{
+		cout << "equal" << endl;
 		node->count++;
 		delete input;
 	}
