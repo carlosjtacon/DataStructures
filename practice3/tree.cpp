@@ -119,26 +119,32 @@ void Tree::removeNode(treeNode* node)	//private (?)
 	}
 	else if (node->leftchild == NULL || node->rightchild == NULL)	//branch one child
 	{
-		if (node->leftchild)
+		if(node != NULL)
 		{
-			remplaceNodeInParent(node->parent, node->leftchild);
-			node->leftchild->parent = node-> parent;
-		}
-		else
-		{
-			remplaceNodeInParent(node->parent, node->rightchild);
-			node->rightchild->parent = node->parent;
+			if (node->leftchild)
+			{
+				remplaceNodeInParent(node->parent, node->leftchild);
+				node->leftchild->parent = node-> parent;
+			}
+			else
+			{
+				remplaceNodeInParent(node->parent, node->rightchild);
+				node->rightchild->parent = node->parent;
+			}
 		}
 		cout << "deleting one child branch" << endl;
 		delete node;
 	}
 	else	//branch two children
 	{
-		aux = node;							
-		while(aux -> leftchild)
-			aux = aux -> leftchild;
-		swap(node, aux);
-		cout << "deleting two children branch" << endl;
+		if(node != NULL)
+		{
+			aux = node;							
+			while(aux -> leftchild)
+				aux = aux -> leftchild;
+			swap(node, aux);
+			cout << "deleting two children branch" << endl;
+		}
 		delete node;
 	}
 }
