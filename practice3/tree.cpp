@@ -81,7 +81,7 @@ void Tree::traverse(treeNode* node)	//private
 
 void Tree::traverse()	//public
 {
-	traverse(tree->root);
+	traverse(root);
 }
 
 void removeAllNotPalindromes(treeNode* node)	//private
