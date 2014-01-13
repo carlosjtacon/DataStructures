@@ -118,7 +118,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 
 	if (node->leftchild == NULL && node->rightchild == NULL)		//leaf
 	{
-		delete(node);
+		delete node;
 	}
 	else if (node->leftchild == NULL || node->rightchild == NULL)	//branch one child
 	{
@@ -132,7 +132,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			remplaceNodeInParent(node->parent, node->rightchild);
 			node->rightchild->parent = node->parent;
 		}
-		delete(node);
+		delete node;
 	}
 	else	//branch two children
 	{
