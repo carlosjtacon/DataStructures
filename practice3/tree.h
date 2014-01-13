@@ -20,6 +20,9 @@ private:
         //handling functions
         void swap(treeNode* parent, treeNode* child);
         void remplaceNodeInParent(treeNode* parent, treeNode* node);
+
+        //debugging
+        void show(treeNode* input);
         
 public:
         Tree();
@@ -29,6 +32,8 @@ public:
         void traverse();
         void remove();
         void removeAllNotPalindromes();
+        //debugging
+        void show();
 
 };
 

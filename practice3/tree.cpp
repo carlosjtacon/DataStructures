@@ -18,6 +18,7 @@ void Tree::add(string input)	//public method
 	newNode->label = input;
 	newNode->bf = 0;
 	newNode->palindrome = isPalindrome(input);
+	newNode->count = 0;
 	newNode->leftchild = NULL;
 	newNode->rightchild = NULL;
 	newNode->parent = NULL; //means newNode is root
@@ -60,7 +61,7 @@ void Tree::search(treeNode *node)	//private
 		return;
 	search(node -> leftchild);
 	if(node->count > 0)
-		cout << node -> label << " | Palindrome: " << node->palindrome;
+		cout << node -> label << " | Palindrome: " << node->palindrome << endl;
 	search(node->rightchild);
 }
 
@@ -150,4 +151,33 @@ void Tree::remplaceNodeInParent(treeNode* node, treeNode* child)
 		else
 			node->parent->rightchild = child;
 	}
+}
+
+void Tree::show()
+{
+	show(root);
+}
+
+void Tree::show(treeNode* input)
+{
+	if (input == NULL)
+		return;
+	show(input->leftchild);
+	cout << "label: " << input->label << endl;
+	cout << "palindrome: " << input->palindrome << endl; 
+	cout << "count: " << input->count << endl;
+	if (input->leftchild !=NULL)
+		cout << "leftchild: "<< input->leftchild->label << endl;
+	else
+		cout << "leftchild: NULL" << endl; 
+	if (input->rightchild !=NULL)
+		cout << "rightchild: "<< input->rightchild->label << endl;
+	else
+		cout << "rightchild: NULL" << endl;
+	if (input->parent !=NULL)
+		cout << "parent: "<< input->parent->label << endl;
+	else
+		cout << "parent: NULL" << endl;
+	cout << "_________________________________________________" << endl;
+	show(input->rightchild);
 }
