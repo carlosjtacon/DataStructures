@@ -138,6 +138,8 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			}
 		}
 		cout << "deleting one child branch " << node->label << endl;
+		if (node == root)
+			root = NULL;
 		delete node;
 	}
 	else	//branch two children
@@ -148,8 +150,10 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			while(aux -> leftchild)
 				aux = aux -> leftchild;
 			swap(node, aux);
-			cout << "deleting two children branch " << node->label << endl;
 		}
+		cout << "deleting two children branch " << node->label << endl;
+		if (node == root)
+			root = NULL;
 		delete node;
 	}
 }
