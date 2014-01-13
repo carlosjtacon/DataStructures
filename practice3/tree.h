@@ -1,9 +1,10 @@
-#include <string.h>
-
 #include "treeNode.h"
+#include "functions.h"
 
 #ifndef TREE_H
 #define TREE_H
+
+using namespace std;
 
 class Tree
 {

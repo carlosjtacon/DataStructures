@@ -59,14 +59,14 @@ void Tree::search(treeNode *node)	//private
 	if(node == NULL)
 		return;
 	search(node -> leftchild);
-	if(node.count > 0)
-		cout << node -> label << " | Palindrome: " << node.palindrome
+	if(node->count > 0)
+		cout << node -> label << " | Palindrome: " << node->palindrome;
 	search(node->rightchild);
 }
 
 void Tree::search()	//public
 {
-	search(tree->root)
+	search(root)
 }
 
 void Tree::traverse(treeNode* node)	//private
@@ -89,7 +89,7 @@ void removeAllNotPalindromes(treeNode* node)	//private
 	if (node == NULL)
 		return;
 	removeAllNotPalindromes(node->leftchild);
-	if(!node.palindrome)
+	if(!node->palindrome)
 		remove(node);
 	removeAllNotPalindromes(node->rightchild);
 }
@@ -123,7 +123,7 @@ void Tree::remove(treeNode * node)	//private (?)
 	}
 	else	//branch two children
 	{
-		aux = node;
+		aux = node;							
 		while(aux -> leftchild)
 			aux = leftchild;
 		swap(node, aux);
