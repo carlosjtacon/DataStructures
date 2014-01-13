@@ -96,7 +96,7 @@ void removeAllNotPalindromes(treeNode* node)	//private
 
 void Tree::removeAllNotPalindromes()	//public
 {
-	removeAllNotPalindromes(tree->root);
+	removeAllNotPalindromes(root);
 }
 
 void Tree::removeNode(treeNode* node)	//private (?)
@@ -115,7 +115,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			node->leftchild->parent = node-> parent;
 		}
 		else
-		}
+		{
 			remplaceNodeInParent(node->parent, node->rightchild);
 			node->rightchild->parent = node->parent;
 		}
@@ -125,7 +125,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 	{
 		aux = node;							
 		while(aux -> leftchild)
-			aux = leftchild;
+			aux = aux -> leftchild;
 		swap(node, aux);
 		delete(node);
 	}
@@ -146,8 +146,8 @@ void Tree::remplaceNodeInParent(treeNode* node, treeNode* child)
 	if(node->parent)
 	{
 		if (node->parent->leftchild == node)
-			node->parent->leftchild == child;
+			node->parent->leftchild = child;
 		else
-			node->parent->rightchild == child;
+			node->parent->rightchild = child;
 	}
 }
