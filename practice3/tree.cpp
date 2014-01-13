@@ -118,6 +118,8 @@ void Tree::removeNode(treeNode* node)	//private (?)
 				node->parent->rightchild = NULL;
 		}
 		cout << "deleting leaf node " << node->label << endl;
+		if (node == root)
+			root = NULL;
 		delete node;
 	}
 	else if (node->leftchild == NULL || node->rightchild == NULL)	//branch one child
