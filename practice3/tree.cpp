@@ -84,7 +84,7 @@ void Tree::traverse()	//public
 	traverse(root);
 }
 
-void removeAllNotPalindromes(treeNode* node)	//private
+void Tree::removeAllNotPalindromes(treeNode* node)	//private
 {
 	if (node == NULL)
 		return;
@@ -127,7 +127,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 		while(aux -> leftchild)
 			aux = aux -> leftchild;
 		swap(node, aux);
-		delete(node);
+		delete node;
 	}
 }
 
