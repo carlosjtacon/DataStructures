@@ -113,18 +113,20 @@ int main()
 					string tmp;
 					while(getline(inputFile, tmp))
 					{
-						input = rmSpace(tmp);
-						if (isPalindrome(input))
+						if (tmp.find(" ") == string::npos)
+						{
+							cout << "must be a single word, " << tmp << " not added" << endl;
+							cont0 ++;
+						}
+						else
 						{
 							//add tmp in the tree
 							tree.add(tmp);
 							cont1++;
 						}
-						else
-							cont0++;
 					}
-					cout << cont1 << " palindromes inserted." << endl;
-					cout << cont0 << " sentences that are not palindrome, not inserted." << endl;
+					cout << cont1 << " words inserted." << endl;
+					cout << cont0 << " lines that were not words, not inserted." << endl;
 				}	
 				else
 				{

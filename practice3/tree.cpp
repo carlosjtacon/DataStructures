@@ -135,9 +135,9 @@ void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 {
 	child->parent = parent->parent;
 	parent->parent = child;
-	if (strcmp(child->label, parent->label) < 0)
+	if (child->label < parent->label)
 		child->rightchild = parent;
-	else if (strcmp(child->label, parent->label) > 0)
+	else if (child->label > parent->label)
 		child->leftchild = parent;
 }
 
