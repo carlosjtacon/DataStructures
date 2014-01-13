@@ -4,9 +4,9 @@
 struct treeNode
 {
 	string label;
-	bool palindrome;		//1 = palindrom 0 != palindrome
+	bool palindrome;		//1 = palindrome 0 != palindrome
 	int count;				//number of repeated elements
-	int bf;					//balance factor	IF AVL
+	//int bf;					//balance factor	IF AVL
 	treeNode* leftchild; 	//leftmostchild
 	treeNode* rightchild;	//rigthsibling
 	treeNode* parent;		

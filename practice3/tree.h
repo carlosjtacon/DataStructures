@@ -11,7 +11,14 @@ class Tree
 private:
 	treeNode *root;
 	void insert(string input, treeNode* node);
+	void search(treeNode* node);
+	void traverse(treeNode* node);
+	void remove(treeNode * node);
+	void removeAllNotPalindromes(treeNode* node);
+
+	//handling functions
 	void swap(treeNode* parent, treeNode* child);
+	void remplaceNodeInParent(treeNode* parent, treeNode* node);
 	
 public:
 	Tree();
@@ -20,6 +27,7 @@ public:
 	void search();
 	void traverse();
 	void remove();
+	void removeAllNotPalindromes();
 
 };
 
