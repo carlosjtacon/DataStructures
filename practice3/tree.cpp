@@ -92,18 +92,10 @@ void Tree::traverse()	//public
 void Tree::removeAllNotPalindromes(treeNode* node)	//private
 {
 	if (node == NULL)
-	{
-		cout << "NULL - break" << endl;
 		return;
-	}
-	cout << "removeAllNotPalindromes(leftchild)" << endl;
 	removeAllNotPalindromes(node->leftchild);
 	if(!node->palindrome)
-	{
-		cout << "remove node ándale" << endl;
 		removeNode(node);
-	}
-	cout << "removeAllNotPalindromes(rightchild)" << endl;
 	removeAllNotPalindromes(node->rightchild);
 }
 
@@ -118,6 +110,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 
 	if (node->leftchild == NULL && node->rightchild == NULL)		//leaf
 	{
+		cout << "deleting leaf node" << endl;
 		delete node;
 	}
 	else if (node->leftchild == NULL || node->rightchild == NULL)	//branch one child
@@ -132,6 +125,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			remplaceNodeInParent(node->parent, node->rightchild);
 			node->rightchild->parent = node->parent;
 		}
+		cout << "deleting one child branch" << endl;
 		delete node;
 	}
 	else	//branch two children
@@ -140,6 +134,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 		while(aux -> leftchild)
 			aux = aux -> leftchild;
 		swap(node, aux);
+		cout << "deleting two children branch" << endl;
 		delete node;
 	}
 }
