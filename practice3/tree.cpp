@@ -112,7 +112,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 	{
 		if (node->parent->leftchild == node)
 			node->parent->leftchild = NULL;
-		else
+		else if (node->parent->rightchild == node)
 			node->parent->rightchild = NULL;
 		cout << "deleting leaf node" << endl;
 		delete node;
