@@ -24,7 +24,7 @@ void Tree::add(string input)	//public method
 	if (root == NULL)
 		root = newNode;
 	else
-		add(input, root);
+		add(newNode, root);
 }
 
 void Tree::add(treeNode* input, treeNode* node) //private method

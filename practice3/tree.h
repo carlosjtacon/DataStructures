@@ -11,7 +11,7 @@ class Tree
 
 private:
         treeNode *root;
-        void add(string input, treeNode* node);
+        void add(treeNode* input, treeNode* node);
         void search(treeNode* node);
         void traverse(treeNode* node);
         void remove(treeNode * node);
