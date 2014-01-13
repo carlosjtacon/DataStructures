@@ -110,7 +110,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 
 	if (node->leftchild == NULL && node->rightchild == NULL)		//leaf
 	{
-		if (node->parent->leftchild)
+		if (node->parent->leftchild == node)
 			node->parent->leftchild = NULL;
 		else
 			node->parent->rightchild = NULL;
