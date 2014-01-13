@@ -111,6 +111,7 @@ int main()
 					{
 						if (tmp.find(" ") == string::npos)
 						{
+							tree.add(tmp);
 							cout << "must be a single word, " << tmp << " not added" << endl;
 							cont0 ++;
 						}

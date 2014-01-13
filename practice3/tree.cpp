@@ -92,10 +92,18 @@ void Tree::traverse()	//public
 void Tree::removeAllNotPalindromes(treeNode* node)	//private
 {
 	if (node == NULL)
+	{
+		cout << "NULL - break" << endl;
 		return;
+	}
+	cout << "removeAllNotPalindromes(leftchild)" << endl;
 	removeAllNotPalindromes(node->leftchild);
 	if(!node->palindrome)
+	{
+		cout << "remove node ándale" << endl;
 		removeNode(node);
+	}
+	cout << "removeAllNotPalindromes(rightchild)" << endl;
 	removeAllNotPalindromes(node->rightchild);
 }
 
