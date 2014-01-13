@@ -66,7 +66,7 @@ void Tree::search(treeNode *node)	//private
 
 void Tree::search()	//public
 {
-	search(root)
+	search(root);
 }
 
 void Tree::traverse(treeNode* node)	//private
@@ -99,15 +99,15 @@ void Tree::removeAllNotPalindromes()	//public
 	removeAllNotPalindromes(tree->root);
 }
 
-void Tree::remove(treeNode * node)	//private (?)
+void Tree::remove(treeNode* node)	//private (?)
 {
 	treeNode *aux;
 
-	if (node->leftchild == NULL && node->rightchild = NULL)		//leaf
+	if (node->leftchild == NULL && node->rightchild == NULL)		//leaf
 	{
 		delete(node);
 	}
-	else if (node->leftchild == NULL || node->rightchild = NULL)	//branch one child
+	else if (node->leftchild == NULL || node->rightchild == NULL)	//branch one child
 	{
 		if (node->leftchild)
 		{
