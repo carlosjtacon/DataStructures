@@ -167,7 +167,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 		while(node -> leftchild)
 		{
 			cout << "swapping " << node->label << " (delete target) with " << node->leftchild->label << endl;
-			swap(node, node -> leftchild);
+			swap(node, node->leftchild);
 		}
 		cout << "moving and deleting two children branch - " << node->label << endl;
 		delete node;
@@ -176,6 +176,8 @@ void Tree::removeNode(treeNode* node)	//private (?)
 
 void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 {
+	//creo que el error podría estar aqui o en borrar nodo con dos hijos
+	//no linkear bien el padre si se hace el swap con el hijo de la derecha
 	child->parent = parent->parent;
 	parent->parent = child;
 	if (child->label < parent->label)
