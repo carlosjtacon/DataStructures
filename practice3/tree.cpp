@@ -118,9 +118,9 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			cout << "deleting leaf node " << node->label << endl;
 			delete node;
 		}
-		else
+		else	//deleting root - we need to reasign root
 		{
-			cout << "deleting root node " << node->label << endl;
+			cout << "deleting root node (is a leaf)" << node->label << endl;
 			delete node;
 			root = NULL;
 		}
@@ -139,15 +139,24 @@ void Tree::removeNode(treeNode* node)	//private (?)
 				remplaceNodeInParent(node->parent, node->rightchild);
 				node->rightchild->parent = node->parent;
 			}
+
+			cout << "deleting one child branch " << node->label << endl;
 		}
-		else
+		else	//deleting root - we need to reasign root
 		{
 			if (node->leftchild)
+			{
 				node->leftchild->parent = NULL;
+				root = node->leftchild;
+			}
 			else
+			{
 				node->rightchild->parent = NULL;
+				root = node->rightchild;
+			}
+
+			cout << "deleting root (is a one child branch)" << node->label << endl;
 		}
-		cout << "deleting one child branch " << node->label << endl;
 		delete node;
 	}
 	else	//branch two children
