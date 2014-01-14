@@ -16,7 +16,6 @@ void Tree::add(string input)	//public method
 {
 	treeNode* newNode = new treeNode;
 	newNode->label = input;
-	newNode->bf = 0;
 	newNode->palindrome = isPalindrome(input);
 	newNode->count = 0;
 	newNode->leftchild = NULL;
@@ -29,7 +28,7 @@ void Tree::add(string input)	//public method
 }
 
 void Tree::add(treeNode* input, treeNode* node) //private method
-{						
+{
 	if (node == NULL)
 	{
 		cout << "NULL case" << endl;
@@ -65,7 +64,7 @@ void Tree::search(treeNode *node)	//private
 		return;
 	search(node -> leftchild);
 	if(node->count > 0)
-		cout << node -> label << " | Palindrome: " << node->palindrome << endl;
+		cout << "Label: " << node -> label << " | Palindrome: " << node->palindrome << " | Repeated: "<< node->count << " times." << endl;
 	search(node->rightchild);
 }
 
@@ -178,16 +177,6 @@ void Tree::removeNode(treeNode* node)	//private (?)
 
 void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 {
-
-/*
-	child->parent = parent->parent;
-	parent->parent = child;
-	if (child->label < parent->label)
-		child->rightchild = parent;
-	else if (child->label > parent->label)
-		child->leftchild = parent;
-*/
-
 	string label = parent->label;			//data aux
 	bool palindrome = parent->palindrome;
 	int count = parent->count;
@@ -199,7 +188,6 @@ void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 	child->label = label;
 	child->palindrome = palindrome;
 	child->count = count;
-
 }
 
 void Tree::remplaceNodeInParent(treeNode* node, treeNode* child)
