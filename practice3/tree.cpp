@@ -168,12 +168,11 @@ void Tree::removeNode(treeNode* node)	//private (?)
 		while(aux -> leftchild)
 		{
 			cout << "swapping " << aux->label << " (delete target) with " << aux->leftchild->label << endl;
-			swap(aux, aux->leftchild);
 			aux = aux->leftchild;
 		}
+		swap(aux, node);
 		cout << "deleting two children branch - " << aux->label << endl;
-		//aux->parent->leftchild = NULL;
-		removeNode(aux);
+		removeNode(aux);		
 	}
 }
 
