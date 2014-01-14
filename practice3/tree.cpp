@@ -94,9 +94,9 @@ void Tree::removeAllNotPalindromes(treeNode* node)	//private
 	if (node == NULL)
 		return;
 	removeAllNotPalindromes(node->leftchild);
+	removeAllNotPalindromes(node->rightchild);
 	if(!node->palindrome)
 		removeNode(node);
-	removeAllNotPalindromes(node->rightchild);
 }
 
 void Tree::removeAllNotPalindromes()	//public
@@ -172,8 +172,8 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			aux = aux->leftchild;
 		}
 		cout << "deleting two children branch - " << aux->label << endl;
-		aux->parent->leftchild = NULL;
-		delete aux;
+		//aux->parent->leftchild = NULL;
+		removeNode(aux);
 	}
 }
 
