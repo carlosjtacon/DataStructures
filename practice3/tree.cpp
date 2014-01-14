@@ -106,8 +106,6 @@ void Tree::removeAllNotPalindromes()	//public
 
 void Tree::removeNode(treeNode* node)	//private (?)
 {
-	treeNode *aux;
-
 	if (node->leftchild == NULL && node->rightchild == NULL)		//leaf
 	{
 		if(node != root)
@@ -116,11 +114,16 @@ void Tree::removeNode(treeNode* node)	//private (?)
 				node->parent->leftchild = NULL;
 			else if (node->parent->rightchild == node)
 				node->parent->rightchild = NULL;
+
+			cout << "deleting leaf node " << node->label << endl;
+			delete node;
 		}
-		cout << "deleting leaf node " << node->label << endl;
-		if (node == root)
+		else
+		{
+			cout << "deleting root node " << node->label << endl;
+			delete node;
 			root = NULL;
-		delete node;
+		}
 	}
 	else if (node->leftchild == NULL || node->rightchild == NULL)	//branch one child
 	{
@@ -137,23 +140,21 @@ void Tree::removeNode(treeNode* node)	//private (?)
 				node->rightchild->parent = node->parent;
 			}
 		}
+		else
+		{
+			if (node->leftchild)
+				node->leftchild->parent = NULL;
+			else
+				node->rightchild->parent = NULL;
+		}
 		cout << "deleting one child branch " << node->label << endl;
-		if (node == root)
-			root = NULL;
 		delete node;
 	}
 	else	//branch two children
 	{
-		if(node != root)
-		{
-			aux = node;							
-			while(aux -> leftchild)
-				aux = aux -> leftchild;
-			swap(node, aux);
-		}
+		while(node -> leftchild)
+			swap(node, node -> leftchild);
 		cout << "deleting two children branch " << node->label << endl;
-		if (node == root)
-			root = NULL;
 		delete node;
 	}
 }
