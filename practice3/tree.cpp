@@ -171,23 +171,35 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			swap(aux, aux->leftchild);
 			aux = aux->leftchild;
 		}
-		cout << "deleting two children branch - " << node->label << endl;
-		delete node;
+		cout << "deleting two children branch - " << aux->label << endl;
+		delete aux;
 	}
 }
 
 void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 {
-	//creo que el error podría estar aqui o en borrar nodo con dos hijos
-	//no linkear bien el padre si se hace el swap con el hijo de la derecha
+
+/*
 	child->parent = parent->parent;
 	parent->parent = child;
 	if (child->label < parent->label)
 		child->rightchild = parent;
 	else if (child->label > parent->label)
 		child->leftchild = parent;
+*/
 
-	//falta cambiar los hijos, pero me hago un lio con variables auxiliares de punteros
+	string label = parent->label;			//data aux
+	bool palindrome = parent->palindrome;
+	int count = parent->count;
+
+	parent->label = child->label;
+	parent->palindrome = child->palindrome;
+	parent->count = child->count;
+
+	child->label = label;
+	child->palindrome = palindrome;
+	child->count = count;
+
 }
 
 void Tree::remplaceNodeInParent(treeNode* node, treeNode* child)
