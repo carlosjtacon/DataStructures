@@ -164,12 +164,14 @@ void Tree::removeNode(treeNode* node)	//private (?)
 	}
 	else	//branch two children
 	{
-		while(node -> leftchild)
+		treeNode* aux =  node;
+		while(aux -> leftchild)
 		{
-			cout << "swapping " << node->label << " (delete target) with " << node->leftchild->label << endl;
-			swap(node, node->leftchild);
+			cout << "swapping " << aux->label << " (delete target) with " << aux->leftchild->label << endl;
+			swap(aux, aux->leftchild);
+			aux = aux->leftchild;
 		}
-		cout << "moving and deleting two children branch - " << node->label << endl;
+		cout << "deleting two children branch - " << node->label << endl;
 		delete node;
 	}
 }
@@ -184,6 +186,8 @@ void Tree::swap(treeNode* parent, treeNode* child) //used in AVL implementation
 		child->rightchild = parent;
 	else if (child->label > parent->label)
 		child->leftchild = parent;
+
+	//falta cambiar los hijos, pero me hago un lio con variables auxiliares de punteros
 }
 
 void Tree::remplaceNodeInParent(treeNode* node, treeNode* child)
