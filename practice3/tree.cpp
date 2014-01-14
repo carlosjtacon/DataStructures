@@ -172,6 +172,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			aux = aux->leftchild;
 		}
 		cout << "deleting two children branch - " << aux->label << endl;
+		aux->parent->leftchild = NULL;
 		delete aux;
 	}
 }
