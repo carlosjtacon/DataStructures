@@ -164,7 +164,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 	}
 	else	//branch two children
 	{
-		treeNode* aux =  node;
+		treeNode* aux =  node->rightchild;
 		while(aux -> leftchild)
 		{
 			cout << "swapping " << aux->label << " (delete target) with " << aux->leftchild->label << endl;
