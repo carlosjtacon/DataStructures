@@ -31,7 +31,6 @@ void Tree::add(treeNode* input, treeNode* node) //private method
 {
 	if (node == NULL)
 	{
-		cout << "NULL case" << endl;
 		if (input->label < input->parent->label)
 			input->parent->leftchild = input;
 		else if (input->label > input->parent->label)
@@ -39,19 +38,16 @@ void Tree::add(treeNode* input, treeNode* node) //private method
 	}
 	else if (input->label < node->label)
 	{
-		cout << input->label <<" < " << node->label << endl;
 		input->parent = node;
 		add(input, node->leftchild);
 	}
 	else if (input->label > node->label)
 	{
-		cout << input->label <<" > " << node->label << endl;
 		input->parent = node;
 		add(input, node->rightchild);
 	}
 	else
 	{
-		cout << "equal" << endl;
 		node->count++;
 		delete input;
 	}
@@ -114,15 +110,12 @@ void Tree::remove(treeNode* node)	//private (?)
 			else if (node->parent->rightchild == node)
 				node->parent->rightchild = NULL;
 
-			cout << "deleting leaf node - " << node->label << endl;
 			delete node;
 			return;
 		}
 		else	//deleting root - we need to reasign root
 		{
-			cout << "deleting ROOT node (is a leaf) - " << node->label << endl;
 			delete node;
-			cout << "--- NOW ROOT IS NULL ---" << endl;
 			root = NULL;
 			return;
 		}
@@ -142,7 +135,6 @@ void Tree::remove(treeNode* node)	//private (?)
 				node->rightchild->parent = node->parent;
 			}
 
-			cout << "deleting one child branch - " << node->label << endl;
 			delete node;
 			return;
 		}
@@ -151,17 +143,14 @@ void Tree::remove(treeNode* node)	//private (?)
 			if (node->leftchild)
 			{
 				node->leftchild->parent = NULL;
-				cout << "--- NOW ROOT IS " << node->leftchild->label << " ---" << endl;
 				root = node->leftchild;
 			}
 			else
 			{
 				node->rightchild->parent = NULL;
-				cout << "--- NOW ROOT IS " << node->rightchild->label << " ---" << endl;
 				root = node->rightchild;
 			}
 
-			cout << "deleting ROOT (is a one child branch) - " << node->label << endl;
 			delete node;
 			return;
 		}
@@ -173,9 +162,7 @@ void Tree::remove(treeNode* node)	//private (?)
 		{
 			aux = aux->leftchild;
 		}
-		cout << "swapping " << node->label << " (delete target) with " << aux->label << endl;
 		swap(aux, node);
-		cout << "deleting two children branch - " << aux->label << endl;
 		remove(aux);
 		return;	
 	}
@@ -217,21 +204,21 @@ void Tree::show(treeNode* input)
 	if (input == NULL)
 		return;
 	show(input->leftchild);
-	cout << "label: " << input->label << endl;
-	cout << "palindrome: " << input->palindrome << endl; 
-	cout << "count: " << input->count << endl;
+	cout << "Label: " << input->label << endl;
+	cout << "Palindrome: " << input->palindrome << endl; 
+	cout << "Count: " << input->count << endl;
 	if (input->leftchild !=NULL)
-		cout << "leftchild: "<< input->leftchild->label << endl;
+		cout << "Leftchild: "<< input->leftchild->label << endl;
 	else
-		cout << "leftchild: NULL" << endl; 
+		cout << "Leftchild: NULL" << endl; 
 	if (input->rightchild !=NULL)
-		cout << "rightchild: "<< input->rightchild->label << endl;
+		cout << "Rightchild: "<< input->rightchild->label << endl;
 	else
-		cout << "rightchild: NULL" << endl;
+		cout << "Rightchild: NULL" << endl;
 	if (input->parent !=NULL)
-		cout << "parent: "<< input->parent->label << endl;
+		cout << "Parent: "<< input->parent->label << endl;
 	else
-		cout << "parent: NULL" << endl;
+		cout << "Parent: NULL" << endl;
 	cout << "_________________________________________________" << endl;
 	show(input->rightchild);
 }
