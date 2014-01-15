@@ -15,7 +15,7 @@ private:
         void search(treeNode* node);
         void traverse(treeNode* node);
         void remove(treeNode * node);
-        void removeAllNotPalindromes(treeNode* node);
+        int removeAllNotPalindromes(treeNode* node);
         void show(treeNode* input);
         void removeAll(treeNode* node);
 
@@ -29,7 +29,7 @@ public:
         void add(string input);
         void search();
         void traverse();
-        void removeAllNotPalindromes();
+        int removeAllNotPalindromes();
         void show();
 
 };

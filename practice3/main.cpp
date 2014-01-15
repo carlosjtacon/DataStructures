@@ -91,7 +91,8 @@ int main()
 			else if (myArgv[0] == "-d")
 			{
 				//Remove all words that are not palindromes keeping the structure of the search tree.
-				tree.removeAllNotPalindromes();
+				int count = tree.removeAllNotPalindromes();
+				cout << count <<" not palindromes words removed!" << endl;
 			}
 			else if (myArgv[0] == "-bst")
 			{

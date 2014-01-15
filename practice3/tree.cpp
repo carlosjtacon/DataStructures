@@ -84,19 +84,24 @@ void Tree::traverse()	//public
 	traverse(root);
 }
 
-void Tree::removeAllNotPalindromes(treeNode* node)	//private
+int Tree::removeAllNotPalindromes(treeNode* node)	//private
 {
+	int counter = 0;
 	if (node == NULL)
-		return;
-	removeAllNotPalindromes(node->leftchild);
-	removeAllNotPalindromes(node->rightchild);
+		return 0;
+	counter += removeAllNotPalindromes(node->leftchild);
+	counter += removeAllNotPalindromes(node->rightchild);
 	if(!node->palindrome)
+	{
 		remove(node);
+		counter++;
+	}
+	return counter;
 }
 
-void Tree::removeAllNotPalindromes()	//public
+int Tree::removeAllNotPalindromes()	//public
 {
-	removeAllNotPalindromes(root);
+	return removeAllNotPalindromes(root);
 }
 
 void Tree::remove(treeNode* node)	//private (?)
