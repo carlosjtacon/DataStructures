@@ -9,7 +9,7 @@ Tree::Tree()
 
 Tree::~Tree()
 {
-	//destructor
+	removeAll(root);
 }
 
 void Tree::add(string input)	//public method
@@ -95,7 +95,7 @@ void Tree::removeAllNotPalindromes(treeNode* node)	//private
 	removeAllNotPalindromes(node->leftchild);
 	removeAllNotPalindromes(node->rightchild);
 	if(!node->palindrome)
-		removeNode(node);
+		remove(node);
 }
 
 void Tree::removeAllNotPalindromes()	//public
@@ -103,7 +103,7 @@ void Tree::removeAllNotPalindromes()	//public
 	removeAllNotPalindromes(root);
 }
 
-void Tree::removeNode(treeNode* node)	//private (?)
+void Tree::remove(treeNode* node)	//private (?)
 {
 	if (node->leftchild == NULL && node->rightchild == NULL)		//leaf
 	{
@@ -176,7 +176,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 		cout << "swapping " << node->label << " (delete target) with " << aux->label << endl;
 		swap(aux, node);
 		cout << "deleting two children branch - " << aux->label << endl;
-		removeNode(aux);
+		remove(aux);
 		return;	
 	}
 }
@@ -234,4 +234,13 @@ void Tree::show(treeNode* input)
 		cout << "parent: NULL" << endl;
 	cout << "_________________________________________________" << endl;
 	show(input->rightchild);
+}
+
+void Tree::removeAll(treeNode* node)
+{
+	if (node == NULL)
+		return;
+	removeAll(node->leftchild);
+	removeAll(node->rightchild);
+	remove(node);
 }

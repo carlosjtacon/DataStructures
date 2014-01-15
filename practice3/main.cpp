@@ -50,15 +50,21 @@ int main()
 		{
 			if (myArgv[0] == "-h")
 			{
+				//print help
 				cout << HELP;
 			}
 			else if (myArgv[0] == "-s")
 			{
-				//Search and show on the screen those words that are repeated in the search tree (one word is repeated if it appears at least two times in the tree. The number of repetitions is not relevant). For each word you have to show whether or not is palindrome.
+				//Search and show on the screen those words that are repeated in the search tree 
+				//(one word is repeated if it appears at least two times in the tree. 
+				//The number of repetitions is not relevant). 
+				//For each word you have to show whether or not is palindrome.
 				tree.search();
 			}
 			else if (myArgv[0] == "-k")
 			{
+				//write words in the keyboard to add it to the BST
+
 				int i = 0;
 
 				cout << "(-q to exit)" << endl;
@@ -70,14 +76,16 @@ int main()
 					
 					if (original.compare("-q")==0)
 						break;
-					if (original.find(" ") == string::npos)//no blank spaces
+					
+					if (original.find(" ") == string::npos && original.size() != 0)//no blank spaces
 						tree.add(original);
 					else
-						cout << "must be a single word" << endl;
+						cout << "Must be a single word!" << endl;
 				}
 			}
-			else if (myArgv[0] == "-t")//traverse inorder showing palindromes
+			else if (myArgv[0] == "-t")
 			{
+				//traverse inorder showing palindromes
 				tree.traverse();
 			}
 			else if (myArgv[0] == "-d")
@@ -87,6 +95,7 @@ int main()
 			}
 			else if (myArgv[0] == "-g")
 			{
+				//show the BST properties
 				tree.show();
 			}
 			else
@@ -101,6 +110,8 @@ int main()
 		{
 			if (myArgv[0] == "-f")
 			{
+				//read words from file
+
 				int cont0 = 0, cont1 = 0;
 
 				ifstream inputFile (myArgv[1]);
@@ -111,15 +122,15 @@ int main()
 					{
 						if (tmp.find(" ") == string::npos)
 						{
-							tree.add(tmp);
-							cout << "must be a single word, " << tmp << " not added" << endl;
-							cont0 ++;
-						}
-						else
-						{
 							//add tmp in the tree
 							tree.add(tmp);
 							cont1++;
+						}
+						else
+						{
+							//space found
+							cout << "Must be a single word!, " << tmp << " not added." << endl;
+							cont0 ++;
 						}
 					}
 					cout << cont1 << " words inserted." << endl;
