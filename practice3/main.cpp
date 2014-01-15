@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
 	
-	#define HELP "Usage: $ palindrome [parameter]\nWhere: parameter is one of:\n\t\t-h (help)\n\t\t-k (read from keyboard)\n\t\t-f file (read from file)\n\t\t-d (remove all words that are not palindromes)\n\t\t-s (search and show words that are repeated in the tree)\n\t\t-t (traverse the tree and show all palindrome words)\n\t\t-q (exit)\n";
+	#define HELP "Usage: $ palindrome [parameter]\nWhere: parameter is one of:\n\t\t-h (help)\n\t\t-k (read from keyboard)\n\t\t-f file (read from file)\n\t\t-d (remove all words that are not palindromes)\n\t\t-s (search and show words that are repeated in the tree)\n\t\t-t (traverse the tree and show all palindrome words)\n\t\t-bst (print binary search tree structure)\n\t\t-q (exit)\n";
 	
 	string input ("\0");
 	string original ("\0");
@@ -93,7 +93,7 @@ int main()
 				//Remove all words that are not palindromes keeping the structure of the search tree.
 				tree.removeAllNotPalindromes();
 			}
-			else if (myArgv[0] == "-g")
+			else if (myArgv[0] == "-bst")
 			{
 				//show the BST properties
 				tree.show();
