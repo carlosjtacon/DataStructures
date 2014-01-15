@@ -116,6 +116,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 
 			cout << "deleting leaf node - " << node->label << endl;
 			delete node;
+			return;
 		}
 		else	//deleting root - we need to reasign root
 		{
@@ -123,6 +124,7 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			delete node;
 			cout << "--- NOW ROOT IS NULL ---" << endl;
 			root = NULL;
+			return;
 		}
 	}
 	else if (node->leftchild == NULL || node->rightchild == NULL)	//branch one child
@@ -131,16 +133,18 @@ void Tree::removeNode(treeNode* node)	//private (?)
 		{
 			if (node->leftchild)
 			{
-				remplaceNodeInParent(node->parent, node->leftchild);
+				remplaceNodeInParent(node, node->leftchild);
 				node->leftchild->parent = node-> parent;
 			}
 			else
 			{
-				remplaceNodeInParent(node->parent, node->rightchild);
+				remplaceNodeInParent(node, node->rightchild);
 				node->rightchild->parent = node->parent;
 			}
 
 			cout << "deleting one child branch - " << node->label << endl;
+			delete node;
+			return;
 		}
 		else	//deleting root - we need to reasign root
 		{
@@ -158,20 +162,22 @@ void Tree::removeNode(treeNode* node)	//private (?)
 			}
 
 			cout << "deleting ROOT (is a one child branch) - " << node->label << endl;
+			delete node;
+			return;
 		}
-		delete node;
 	}
 	else	//branch two children
 	{
 		treeNode* aux =  node->rightchild;
 		while(aux -> leftchild)
 		{
-			cout << "swapping " << aux->label << " (delete target) with " << aux->leftchild->label << endl;
 			aux = aux->leftchild;
 		}
+		cout << "swapping " << node->label << " (delete target) with " << aux->label << endl;
 		swap(aux, node);
 		cout << "deleting two children branch - " << aux->label << endl;
-		removeNode(aux);		
+		removeNode(aux);
+		return;	
 	}
 }
 
